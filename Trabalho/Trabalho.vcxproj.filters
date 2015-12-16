@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Unidades">
+      <UniqueIdentifier>{75f8efd6-4388-4a10-9f92-8af5ca6d47b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Salas">
+      <UniqueIdentifier>{f86b0b4c-cf48-44fe-82ac-c6ea46164817}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Nave">
+      <UniqueIdentifier>{d66e26fd-bc8c-4292-b8d8-ebceb38ee453}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Salas">
+      <UniqueIdentifier>{282c60c6-ae29-416b-9f09-04812f5bc314}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Unidades">
+      <UniqueIdentifier>{acb71c06-131e-4ccc-97ab-10148975d625}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Nave">
+      <UniqueIdentifier>{27d1d576-e3d4-494f-8751-09e642e52331}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Unidades\Xenomorfos">
+      <UniqueIdentifier>{c2ad8b23-118e-4926-ab4a-1a44a274afc4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Unidades\Inimigos">
+      <UniqueIdentifier>{b1971756-6a26-4b55-888f-2728ad0203ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Unidades\Tripulantes">
+      <UniqueIdentifier>{ed1e459a-bbac-4ded-8171-7aa0b6a48960}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Salas\Comuns">
+      <UniqueIdentifier>{8f4d0434-ebd8-4a35-a1e8-32d9e89477e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Salas\Opcionais">
+      <UniqueIdentifier>{b357aa9e-032e-40b4-be87-744c0e646b43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Salas\Comuns">
+      <UniqueIdentifier>{1cb1478d-54cc-46a1-9044-1de3f00efde8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Salas\Opcionais">
+      <UniqueIdentifier>{9eaa262c-8180-4771-81df-4a1976156c6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Unidades\Xenomorfos">
+      <UniqueIdentifier>{74255d38-fc9f-4870-a82d-99b500459e25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Unidades\Tripulantes">
+      <UniqueIdentifier>{c170eb26-7bcf-4a80-b855-4299c93da1b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Unidades\Inimigos">
+      <UniqueIdentifier>{0c8a4b79-a01f-4197-a848-ffcc382ed44d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PreparaJogo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Salas.cpp">
+      <Filter>Source Files\Salas</Filter>
+    </ClCompile>
+    <ClCompile Include="Unidades.cpp">
+      <Filter>Source Files\Unidades</Filter>
+    </ClCompile>
+    <ClCompile Include="utils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Nave.cpp">
+      <Filter>Source Files\Nave</Filter>
+    </ClCompile>
+    <ClCompile Include="Escudo.cpp">
+      <Filter>Source Files\Salas\Comuns</Filter>
+    </ClCompile>
+    <ClCompile Include="Maquinas.cpp">
+      <Filter>Source Files\Salas\Comuns</Filter>
+    </ClCompile>
+    <ClCompile Include="Ponte.cpp">
+      <Filter>Source Files\Salas\Comuns</Filter>
+    </ClCompile>
+    <ClCompile Include="Propulsor.cpp">
+      <Filter>Source Files\Salas\Comuns</Filter>
+    </ClCompile>
+    <ClCompile Include="SuporteVida.cpp">
+      <Filter>Source Files\Salas\Comuns</Filter>
+    </ClCompile>
+    <ClCompile Include="Blob.cpp">
+      <Filter>Source Files\Unidades\Xenomorfos</Filter>
+    </ClCompile>
+    <ClCompile Include="Casulo.cpp">
+      <Filter>Source Files\Unidades\Xenomorfos</Filter>
+    </ClCompile>
+    <ClCompile Include="Geigemorfo.cpp">
+      <Filter>Source Files\Unidades\Xenomorfos</Filter>
+    </ClCompile>
+    <ClCompile Include="Mxyzypykwi.cpp">
+      <Filter>Source Files\Unidades\Xenomorfos</Filter>
+    </ClCompile>
+    <ClCompile Include="Xenomorfo.cpp">
+      <Filter>Source Files\Unidades\Xenomorfos</Filter>
+    </ClCompile>
+    <ClCompile Include="Capitao.cpp">
+      <Filter>Source Files\Unidades\Tripulantes</Filter>
+    </ClCompile>
+    <ClCompile Include="MTripulacao.cpp">
+      <Filter>Source Files\Unidades\Tripulantes</Filter>
+    </ClCompile>
+    <ClCompile Include="Tripulacao.cpp">
+      <Filter>Source Files\Unidades\Tripulantes</Filter>
+    </ClCompile>
+    <ClCompile Include="Robot.cpp">
+      <Filter>Source Files\Unidades\Tripulantes</Filter>
+    </ClCompile>
+    <ClCompile Include="Inimigo.cpp">
+      <Filter>Source Files\Unidades\Inimigos</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="PreparaJogo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="utils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Unidades.h">
+      <Filter>Header Files\Unidades</Filter>
+    </ClInclude>
+    <ClInclude Include="Salas.h">
+      <Filter>Header Files\Salas</Filter>
+    </ClInclude>
+    <ClInclude Include="Nave.h">
+      <Filter>Header Files\Nave</Filter>
+    </ClInclude>
+    <ClInclude Include="Xenomorfo.h">
+      <Filter>Header Files\Unidades\Xenomorfos</Filter>
+    </ClInclude>
+    <ClInclude Include="Mxyzypykwi.h">
+      <Filter>Header Files\Unidades\Xenomorfos</Filter>
+    </ClInclude>
+    <ClInclude Include="Geigermorfo.h">
+      <Filter>Header Files\Unidades\Xenomorfos</Filter>
+    </ClInclude>
+    <ClInclude Include="Casulo.h">
+      <Filter>Header Files\Unidades\Xenomorfos</Filter>
+    </ClInclude>
+    <ClInclude Include="Blob.h">
+      <Filter>Header Files\Unidades\Xenomorfos</Filter>
+    </ClInclude>
+    <ClInclude Include="Inimigo.h">
+      <Filter>Header Files\Unidades\Inimigos</Filter>
+    </ClInclude>
+    <ClInclude Include="Capitao.h">
+      <Filter>Header Files\Unidades\Tripulantes</Filter>
+    </ClInclude>
+    <ClInclude Include="MTripulacao.h">
+      <Filter>Header Files\Unidades\Tripulantes</Filter>
+    </ClInclude>
+    <ClInclude Include="Robot.h">
+      <Filter>Header Files\Unidades\Tripulantes</Filter>
+    </ClInclude>
+    <ClInclude Include="Tripulacao.h">
+      <Filter>Header Files\Unidades\Tripulantes</Filter>
+    </ClInclude>
+    <ClInclude Include="Propulsor.h">
+      <Filter>Header Files\Salas\Comuns</Filter>
+    </ClInclude>
+    <ClInclude Include="Maquinas.h">
+      <Filter>Header Files\Salas\Comuns</Filter>
+    </ClInclude>
+    <ClInclude Include="Escudo.h">
+      <Filter>Header Files\Salas\Comuns</Filter>
+    </ClInclude>
+    <ClInclude Include="Ponte.h">
+      <Filter>Header Files\Salas\Comuns</Filter>
+    </ClInclude>
+    <ClInclude Include="SuporteVida.h">
+      <Filter>Header Files\Salas\Comuns</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
