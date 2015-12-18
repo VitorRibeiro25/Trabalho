@@ -78,6 +78,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\..\..\ISEC\3º ano\POO\consola.cpp" />
     <ClCompile Include="Blob.cpp" />
     <ClCompile Include="Capitao.cpp" />
     <ClCompile Include="Casulo.cpp" />
@@ -101,6 +102,7 @@
     <ClCompile Include="Xenomorfo.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\..\..\ISEC\3º ano\POO\consola.h" />
     <ClInclude Include="Blob.h" />
     <ClInclude Include="Capitao.h" />
     <ClInclude Include="Casulo.h" />

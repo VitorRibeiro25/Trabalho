@@ -126,6 +126,9 @@
     <ClCompile Include="Inimigo.cpp">
       <Filter>Source Files\Unidades\Inimigos</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\ISEC\3º ano\POO\consola.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PreparaJogo.h">
@@ -187,6 +190,9 @@
     </ClInclude>
     <ClInclude Include="SuporteVida.h">
       <Filter>Header Files\Salas\Comuns</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\..\ISEC\3º ano\POO\consola.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -54,7 +54,7 @@ void PreparaJogo::ajudaUnidades(){
 	cout << "NAME = nome da inimigo - Opcoes: " << endl;
 	cout << "pir - Pirata (Criacao da unidade pirata)" << endl;
 	cout << "addxenomorfo NAME" << endl;
-	cout << "xenomo"
+	cout << "xenomo" << endl;
 }
 
 

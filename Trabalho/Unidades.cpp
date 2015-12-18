@@ -75,6 +75,7 @@ void Unidades::perdeOxi(int val){
 
 
 void Unidades::respira(){
+	/*
 	int val = 0;
 	if (getOxigenioSala() < 0){
 		int val = getVida() - 1;
@@ -82,7 +83,7 @@ void Unidades::respira(){
 	}
 	else {
 
-	}
+	}*/
 }
 
 void Unidades::flamejante(){

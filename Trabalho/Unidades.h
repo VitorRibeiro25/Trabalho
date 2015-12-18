@@ -24,7 +24,7 @@ public:
 	int getVida();
 	int getDano();
 	Sala *getOndeEstou();
-	int getOxigenioSala();
+	//int getOxigenioSala();
 
 	//funcao sets
 	void setNome(string name);
@@ -32,7 +32,7 @@ public:
 	void setVida(int vid);
 	void setDano(int dan);
 	void setOndeEstou(Sala *s);
-	void setOxigenioSala(int ox);
+	//void setOxigenioSala(int ox);
 
 	// funcao de mostrar
 	string mostraUnidades();

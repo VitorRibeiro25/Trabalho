@@ -2,10 +2,13 @@
 #include <string>
 #include <iostream>
 #include "PreparaJogo.h"
+#include "consola.h"
 
 using namespace std;
 
 void main(){
+
+	Consola c;
 
 	int op;
 
