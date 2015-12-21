@@ -9,6 +9,9 @@ class Mtripulacao : public Tripulacao{
 public:
 	Mtripulacao();
 	virtual string mostraMtrip();
+	virtual void fazInicio();
+	virtual void fazOrdens();
+	virtual void fazFim();
 };
 
 

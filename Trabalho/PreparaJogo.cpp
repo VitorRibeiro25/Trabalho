@@ -24,8 +24,16 @@ PreparaJogo::PreparaJogo(){
 
 }
 
-PreparaJogo::~PreparaJogo(){
-
+void errorMsg(string error){
+	Consola c;
+	c.setBackgroundColor(c.VERMELHO);
+	c.setTextColor(c.BRANCO);
+	c.gotoxy(3, 37);
+	cout << "[ERRO] ";
+	c.gotoxy(9, 37);
+	cout << " " << error;
+	c.getch();
+	c.setBackgroundColor(c.PRETO);
 }
 
 void PreparaJogo::ajudaSalas(){
@@ -54,85 +62,152 @@ void PreparaJogo::ajudaUnidades(){
 	cout << "NAME = nome da inimigo - Opcoes: " << endl;
 	cout << "pir - Pirata (Criacao da unidade pirata)" << endl;
 	cout << "addxenomorfo NAME" << endl;
-	cout << "xenomo" << endl;
+	cout << "NAME = nome do xenomorfo em questao - Opcoes: " << endl;
+	cout << "gei - Geigemorfo (Criacao da unidade Geigemorfo)" << endl;
+	cout << "cas - Casulo do Geigemorfo (Criacao do casulo para o Geigemorfo)" << endl;
+	cout << "blob - Blob (Criacao da unidade Blob)" << endl;
+	cout << "mxyz - Mxyz (Criacao da unidade Mxyz)" << endl;
 }
 
+void PreparaJogo::ajudaAntesJogo(){
 
-void PreparaJogo::comandos(string input, bool &erro){
-	string nomeFuncao, name;
+}
+
+void PreparaJogo::Prepjogo(){
+
+}
+
+bool PreparaJogo::comandosJogo(string input, bool &erro){
+	string nomeFuncao, name, name2;
 
 	erro = false;
+
+	// falta fazer verificacoes
 
 	istringstream in(input);
 	in >> nomeFuncao;
 
 	if (nomeFuncao == "addsala"){
-		in >> name;
+		in >> name >> name2;
 
 		if (name == "pon"){
+			addPonte();
 		}
 
 		else if (name == "svid"){
+			addSupVida();
 		}
 
 		else if (name == "esc"){
+			addEscudo();
 		}
 
 		else if (name == "maq"){
+			addMaquina();
 		}
 
 		else if (name == "pro"){
+			addPropulsor();
 		}
 
 	}
 
-	if (nomeFuncao == "addtripulante"){
-		in >> name;
+	else if (nomeFuncao == "addtripulante"){
+		in >> name >> name2;
 
 		if (name == "tpn"){
+			addMtrip();
 
 		}
 		else if (name == "cap"){
+			addCapitao();
 
 		}
 		else if (name == "rob"){
+			addRobot();
 
 		}
 
 	}
 
-	if (nomeFuncao == "addinimigo"){
+	else if (nomeFuncao == "addinimigo"){
+		in >> name >> name2;
 		if (name == "pir"){
+			addInimigo();
 		}
 	}
 
-	if (nomeFuncao == "addxenomorfo"){
-		if (name == "geige"){
-
+	else if (nomeFuncao == "addxenomorfo"){
+		in >> name >> name2;
+		if (name == "gei"){
+			addGeige();
 		}
 
 		else if (name == "cas"){
-
+			addCasulo();
 		}
 		else if (name == "blob"){
+			addBlob();
 
 		}
 		else if (name == "mxyz"){
-
+			addMxyz();
 		}
 	}
 
-	if (nomeFuncao == "ajuda"){
-		in >> name;
-		if (name == "salas"){
+	else if (nomeFuncao == "jogar"){
+		Prepjogo();
+	}
 
+	else if (nomeFuncao == "ajuda"){
+		in >> name >> name2;
+		if (name == "salas"){
+			ajudaSalas();
 		}
 		else if (name == "unidades"){
-
+			ajudaUnidades();
 		}
 
 	}
 
+	else {
+		erroMsg("Comando Incorreto! por favor introduza outro!");
+		erro = true;
+	}
+
+	ApagaErrorMsg();
+	return false;
+}
+
+
+
+
+bool PreparaJogo::comandosMenu(){
+	Consola c;
+	string input, nomefunc;
+	
+	bool error = false;
+	do{
+		input = recebeComando();
+		error = false;
+		istringstream in(input);
+		in >> nomefunc;
+
+		if (nomefunc == "sair"){
+			exit(0);
+		}
+		else if (nomefunc == "jogar"){
+			Prepjogo();
+		}
+		else if (nomefunc == "ajuda"){
+			
+		}
+		else{
+			errorMsg("Comando incorreto! Por favor introduza outro!");
+		}
+		ApagaErrorMsg();
+	} while (error == true);
+	return false;
 
 }
 
@@ -144,12 +219,33 @@ int PreparaJogo::getColunas(){
 	return colunas;
 }
 
+int PreparaJogo::getposX(){
+	return posX;
+}
+
+int PreparaJogo::getposY(){
+	return posY;
+}
+
+void PreparaJogo::setposXY(int x, int y){
+	posX = x;
+	posY = y;
+}
+
 void PreparaJogo::setLinhas(int lin){
 	linhas = lin;
 }
 
 void PreparaJogo::setColunas(int col){
 	colunas = col;
+}
+
+void PreparaJogo::setX(int x){
+	posX = x;
+}
+
+void PreparaJogo::setY(int y){
+	posY = y;
 }
 
 void PreparaJogo::addEscudo(){

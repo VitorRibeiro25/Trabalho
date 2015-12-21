@@ -8,6 +8,8 @@ class Robot : public Tripulacao{
 public:
 	Robot();
 	virtual string mostraRobot();
+	virtual void fazOrdens();
+	virtual void fazFim();
 };
 
 

@@ -8,9 +8,10 @@ Robot::Robot():Tripulacao(){
 	setId(id_robot);
 	setVida(100);
 	setDano(100);
-	exoesqueleto(2);
-	combatente(3);
-	tripulacao();
+	fazOrdens();
+	fazFim();
+
+
 }
 
 string Robot::mostraRobot(){
@@ -19,5 +20,14 @@ string Robot::mostraRobot(){
 	os << "Robot com ID " << getId() << "Vida:" << getVida() << endl << "Dano: " << getDano() << endl << "Estou na sala: " << getOndeEstou() << endl;
 
 	return os.str();
+}
+
+void Robot::fazOrdens(){
+	tripulacao();
+}
+
+void Robot::fazFim(){	
+	exoesqueleto(2);
+	combatente(3);
 }
 

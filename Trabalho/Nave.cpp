@@ -4,44 +4,31 @@
 using namespace std;
 
 Nave::Nave(){
+	for (int i = 0; i < (int)salas[LIN][COL]; i++){
+		for (int j = 0; j < (int)salas[LIN][COL]; j++){
+			Sala *s = new Sala();
+		}
+	}
 }
 
 Nave::~Nave(){
-
+	for (int i = 0; i < (int)salas[LIN][COL]; i++){
+		for (int j = 0; j < (int)salas[LIN][COL]; j++){
+			delete salas[i][j];
+		}
+	}
 }
 
-/*
+
 string Nave::mostraNave(){
 
 	ostringstream os;
 
-	for (int i = 0; i < salas[.size(); i++){
-		os << salas[i]->mostraSala() << endl;
+	for (int i = 0; i < (int)salas[LIN][COL]; i++){
+		for (int j = 0; j < (int)salas[LIN][COL];j++)
+		os << salas[i][j]->mostraSala() << endl;
 	}
 
 	return os.str();
 }
-*/
 
-/*void Nave::adicionaSala(string name){
-	if (name == "pon"){
-		salas.push_back(new Sala);
-	}
-	if (name == "sv"){
-		salas.push_back(new Sala);
-	}
-
-	if (name == "ce"){
-		salas.push_back(new Sala);
-	}
-	
-	if (name == "sm"){
-		salas.push_back(new Sala);
-	}
-
-	if (name == "pro"){
-		salas.push_back(new Sala);
-	}
-}
-
-*/

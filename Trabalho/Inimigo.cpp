@@ -10,9 +10,8 @@ Inimigo::Inimigo():Unidades(){
 	setId(id_ini);
 	setVida(100);
 	setDano(100);
-	respira();
-	inimigo(1, 2);
-	move(15);
+	fazInicio();
+	fazFim();
 }
 
 string Inimigo::mostraInimigo(){
@@ -21,4 +20,14 @@ string Inimigo::mostraInimigo(){
 	os << "Pirata com ID " << getId() << "Vida:" << getVida() << endl << "Dano: " << getDano() << endl << "Estou na sala: " << getOndeEstou() << endl;
 
 	return os.str();
+}
+
+void Inimigo::fazInicio(){
+	respira();	
+	move(15);
+}
+
+
+void Inimigo::fazFim(){
+	inimigo(1, 2);
 }

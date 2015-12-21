@@ -41,6 +41,10 @@ Sala *Unidades::getOndeEstou(){
 	return ondeEstou;
 }
 
+Sala *Unidades::getOxigenio(){
+	return oxigenio;
+}
+
 void Unidades::setNome(string name){
 	nome = name;
 }
@@ -61,6 +65,10 @@ void Unidades::setOndeEstou(Sala *s){
 	ondeEstou = s;
 }
 
+void Unidades::setOxigenio(Sala *s){
+	oxigenio = s;
+}
+
 string Unidades::mostraUnidades(){
 	ostringstream os;
 
@@ -69,25 +77,21 @@ string Unidades::mostraUnidades(){
 	return os.str();
 }
 
-void Unidades::perdeOxi(int val){
-
-}
-
 
 void Unidades::respira(){
-	/*
-	int val = 0;
-	if (getOxigenioSala() < 0){
-		int val = getVida() - 1;
-		setVida(val);
+	
+	if (getOxigenio() < 0){
+		setVida(getVida() -1);
 	}
 	else {
+		setOxigenio(getOxigenio() - 1);
+	}
 
-	}*/
+
 }
 
 void Unidades::flamejante(){
-
+	setOxigenio(getOxigenio() - 5);
 }
 
 void Unidades::toxico(int ganhaVida){
@@ -95,7 +99,7 @@ void Unidades::toxico(int ganhaVida){
 }
 
 void Unidades::indeciso(){
-
+	
 }
 
 void Unidades::misterioso(){
@@ -103,11 +107,14 @@ void Unidades::misterioso(){
 }
 
 void Unidades::regenerador(int ganhaVida){
-
+	if (getVida() < 100){
+		setVida(getVida() + ganhaVida);
+	}
+	else return;
 }
 
 void Unidades::exoesqueleto(int previneDano){
-
+	setDano(getDano() + previneDano);
 }
 
 void Unidades::robotico(){
@@ -115,7 +122,6 @@ void Unidades::robotico(){
 }
 
 void Unidades::reparador(int RepararDano){
-
 }
 
 void Unidades::combatente(int provocaDano){
@@ -155,5 +161,16 @@ void Unidades::move(int prob){
 }
 
 void Unidades::armado(int ganhaDano){
+
+}
+
+void Unidades::fazInicio(){
+}
+
+void Unidades::fazOrdens(){
+
+}
+
+void Unidades::fazFim(){
 
 }

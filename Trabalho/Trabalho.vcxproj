@@ -85,6 +85,7 @@
     <ClCompile Include="Escudo.cpp" />
     <ClCompile Include="Geigemorfo.cpp" />
     <ClCompile Include="Inimigo.cpp" />
+    <ClCompile Include="Interface.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Maquinas.cpp" />
     <ClCompile Include="MTripulacao.cpp" />
@@ -109,6 +110,7 @@
     <ClInclude Include="Escudo.h" />
     <ClInclude Include="Geigermorfo.h" />
     <ClInclude Include="Inimigo.h" />
+    <ClInclude Include="Interface.h" />
     <ClInclude Include="Maquinas.h" />
     <ClInclude Include="MTripulacao.h" />
     <ClInclude Include="Mxyzypykwi.h" />

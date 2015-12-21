@@ -8,11 +8,9 @@ Mtripulacao::Mtripulacao():Tripulacao(){
 	setId(id_mtrip);
 	setVida(100);
 	setDano(100);
-	respira();
-	reparador(1);
-	combatente(1);
-	operador();
-	tripulacao();
+	fazInicio();	
+	fazOrdens();
+	fazFim();
 }
 
 string Mtripulacao::mostraMtrip(){
@@ -21,5 +19,21 @@ string Mtripulacao::mostraMtrip(){
 	os << "Tripulante com ID " << getId() << "Vida:" << getVida() << endl << "Dano: " << getDano() << endl << "Estou na sala: " << getOndeEstou() << endl;
 
 	return os.str();
+}
+
+void Mtripulacao::fazInicio(){
+	respira();
+
+}
+
+void Mtripulacao::fazOrdens(){
+	operador();
+	tripulacao();
+}
+
+void Mtripulacao::fazFim(){
+	reparador(1);
+	combatente(1);	
+
 }
 

@@ -2,11 +2,13 @@
 #define NAVE_H
 #include "utils.h"
 #include "Salas.h"
+#define LIN 3
+#define COL 4
 
 using namespace std;
 
 class Nave{
-	Sala *salas[3][5];
+	Sala *salas[LIN][COL];
 public:
 	Nave();
 

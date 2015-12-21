@@ -8,6 +8,9 @@ class Capitao : public Tripulacao{
 public:
 	Capitao();
 	virtual string mostraCapitao();
+	virtual void fazInicio();
+	virtual void fazOrdens();
+	virtual void fazFim();
 };
 
 #endif

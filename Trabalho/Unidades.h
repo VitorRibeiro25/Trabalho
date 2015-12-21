@@ -12,6 +12,7 @@ class Unidades{
 	static int contador;
 	int id_uni;
 	Sala *ondeEstou;
+	Sala *oxigenio;
 public:
 	// construtor e destrutor
 	Unidades(string name);
@@ -24,7 +25,7 @@ public:
 	int getVida();
 	int getDano();
 	Sala *getOndeEstou();
-	//int getOxigenioSala();
+	Sala *getOxigenio();
 
 	//funcao sets
 	void setNome(string name);
@@ -32,7 +33,7 @@ public:
 	void setVida(int vid);
 	void setDano(int dan);
 	void setOndeEstou(Sala *s);
-	//void setOxigenioSala(int ox);
+	void setOxigenio(Sala *s);
 
 	// funcao de mostrar
 	string mostraUnidades();
@@ -62,6 +63,10 @@ public:
 	//outras funcoes necessarias
 
 	void perdeOxi(int val);
+	virtual void fazInicio();	
+	virtual void fazOrdens();
+	virtual void fazFim();
+
 
 
 };

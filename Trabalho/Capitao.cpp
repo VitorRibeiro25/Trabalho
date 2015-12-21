@@ -10,12 +10,12 @@ Capitao::Capitao():Tripulacao(){
 	setId(id_cap);
 	setVida(100);
 	setDano(100);
-	respira();
-	exoesqueleto(1);
-	reparador(1);
-	combatente(2);
-	operador();
-	tripulacao();
+	fazInicio();	
+	fazOrdens();
+	fazFim();
+
+
+
 }
 
 string Capitao::mostraCapitao(){
@@ -24,5 +24,21 @@ string Capitao::mostraCapitao(){
 	os << "Capitao com ID " << getId() << "Vida:" << getVida() << endl << "Dano: " << getDano() << endl << "Estou na sala: " << getOndeEstou() << endl;
 
 	return os.str();
+}
+
+void Capitao::fazInicio(){
+	respira();
+
+}
+
+void Capitao::fazOrdens(){
+	operador();	
+	tripulacao();	
+	exoesqueleto(1);
+}
+
+void Capitao::fazFim(){
+	reparador(1);	
+	combatente(2);	
 }
 

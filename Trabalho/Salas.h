@@ -36,6 +36,8 @@ public:
 
 	//funcao de mostrar
 	string mostraSala();
+
+	// faz accoes
 };
 
 #endif

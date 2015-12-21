@@ -1,30 +1,19 @@
-#include <sstream>
-#include <string>
-#include <iostream>
-#include "PreparaJogo.h"
+#include "utils.h"
 #include "consola.h"
+#include "Interface.h"
 
-using namespace std;
 
 void main(){
 
 	Consola c;
+	
+	Interface *janela = new Interface();
 
-	int op;
+	c.setScreenSize(41, 80);
 
-	do{
-		cout << "1 - Preparar Viagem" << endl;
-		cout << "2 - Iniciar Jogo" << endl;
-		cout << "3 -  Sair" << endl;
-		cout << "Opcao: ";
-		cin >> op;
-		switch (op){
-		case 1: break;
-		case 2: break;
-		case 3: break;
-		}
+	init_alea();
 
-
-	} while (op != 3);
+	janela->menu();
+	janela->Comeca();
 
 }

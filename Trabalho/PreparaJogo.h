@@ -9,6 +9,7 @@
 
 class PreparaJogo{
 	int linhas, colunas;
+	int posX, posY;
 	Sala *salas[3][5];
 	vector <Unidades *> unidades;
 
@@ -18,21 +19,31 @@ public:
 	PreparaJogo();
 	~PreparaJogo();
 
+	// funcao de preparajogo
+	void Prepjogo();
+
 	// funcoes de comandos
 	void erroMsg(string error);
-	void comandos(string input, bool &erro);
+	bool comandosJogo(string input, bool &erro);
+	bool comandosMenu();
 
 	//funcoes gets
 	int getLinhas();
 	int getColunas();
+	int getposX();
+	int getposY();
 
 	//funcoes sets
 	void setLinhas(int lin);
 	void setColunas(int col);
+	void setX(int x);
+	void setY(int y);
+	void setposXY(int x, int y);
 
 	// funcao de ajuda ao utilizador
 	void ajudaSalas();
 	void ajudaUnidades();
+	void ajudaAntesJogo();
 
 	// funcoes de adicionar salas
 	void addEscudo();

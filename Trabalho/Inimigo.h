@@ -9,6 +9,8 @@ class Inimigo : public Unidades{
 public:
 	Inimigo();
 	virtual string mostraInimigo();
+	virtual void fazInicio();
+	virtual void fazFim();
 };
 
 #endif
