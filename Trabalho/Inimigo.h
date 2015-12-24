@@ -8,9 +8,9 @@ class Inimigo : public Unidades{
 	static int id_ini;
 public:
 	Inimigo();
-	virtual string mostraInimigo();
-	virtual void fazInicio();
-	virtual void fazFim();
+	void mostraUni();
+	void fazInicio();
+	void fazFim();
 };
 
 #endif

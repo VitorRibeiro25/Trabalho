@@ -7,9 +7,9 @@ class Robot : public Tripulacao{
 	static int id_robot;
 public:
 	Robot();
-	virtual string mostraRobot();
-	virtual void fazOrdens();
-	virtual void fazFim();
+	void mostraUni();
+	void fazOrdens();
+	void fazFim();
 };
 
 

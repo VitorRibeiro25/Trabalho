@@ -7,7 +7,7 @@ class Blob : public Xenomorfo{
 	static int id_blob;
 public:
 	Blob();
-	virtual string mostraBlob();
+	void mostraUni();
 };
 
 #endif

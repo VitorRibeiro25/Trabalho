@@ -12,11 +12,10 @@ Casulo::Casulo():Xenomorfo(){
 	exoesqueleto(1);
 }
 
-string Casulo::mostraCasulo(){
+void Casulo::mostraUni(){
 	ostringstream os;
 
 	os << "Casulo com ID " << getId() << "Vida:" << getVida() << endl << "Dano: " << getDano() << endl << "Estou na sala: " << getOndeEstou() << endl;
 
-	return os.str();
 }
 

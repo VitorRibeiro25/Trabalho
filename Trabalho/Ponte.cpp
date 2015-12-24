@@ -7,7 +7,7 @@ Ponte::Ponte() :Sala(){
 	setIntegridade(100);
 }
 
-string Ponte::mostraPonte(){
+string Ponte::mostra(){
 	ostringstream os;
 
 	os << "Ponte com ID: " << getID() << endl << "Vida: " << getVida() << endl << "Oxigenio: " << getOxigenio() << endl << "Integridade: " << getIntegridade() << endl;

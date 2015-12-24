@@ -7,7 +7,7 @@ SuporteVida::SuporteVida() :Sala(){
 	setIntegridade(100);
 }
 
-string SuporteVida::mostraSuporte(){
+string SuporteVida::mostra(){
 	ostringstream os;
 
 	os << "Suporte de Vida com ID: " << getID() << endl << "Vida: " << getVida() << endl << "Oxigenio: " << getOxigenio() << endl << "Integridade: " << getIntegridade() << endl;

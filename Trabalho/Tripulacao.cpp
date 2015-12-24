@@ -6,9 +6,8 @@ Tripulacao::Tripulacao():Unidades(){
 	id_trip++;
 }
 
-string Tripulacao::mostraTripulacao(){
+void Tripulacao::mostraUni(){
 
 	ostringstream os;
 
-	return os.str();
 }

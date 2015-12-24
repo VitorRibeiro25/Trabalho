@@ -8,10 +8,10 @@ class Mtripulacao : public Tripulacao{
 	static int id_mtrip;
 public:
 	Mtripulacao();
-	virtual string mostraMtrip();
-	virtual void fazInicio();
-	virtual void fazOrdens();
-	virtual void fazFim();
+	void mostraUni();
+	void fazInicio();
+	void fazOrdens();
+	void fazFim();
 };
 
 

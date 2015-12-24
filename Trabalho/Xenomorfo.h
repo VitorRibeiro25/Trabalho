@@ -8,7 +8,7 @@ class Xenomorfo : public Unidades{
 	static int id_xeno;
 public:
 	Xenomorfo();
-	virtual string mostraXeno();
+	void mostraUni();
 };
 
 

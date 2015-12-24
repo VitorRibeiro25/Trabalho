@@ -10,8 +10,7 @@
 class PreparaJogo{
 	int linhas, colunas;
 	int posX, posY;
-	Sala *salas[3][5];
-	vector <Unidades *> unidades;
+	Nave *n;
 
 public:
 
@@ -25,13 +24,14 @@ public:
 	// funcoes de comandos
 	void erroMsg(string error);
 	bool comandosJogo(string input, bool &erro);
-	bool comandosMenu();
+	void comandosMenu();
 
 	//funcoes gets
 	int getLinhas();
 	int getColunas();
 	int getposX();
 	int getposY();
+	Nave *getNave();
 
 	//funcoes sets
 	void setLinhas(int lin);

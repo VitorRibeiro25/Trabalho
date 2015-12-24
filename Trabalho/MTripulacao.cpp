@@ -13,12 +13,11 @@ Mtripulacao::Mtripulacao():Tripulacao(){
 	fazFim();
 }
 
-string Mtripulacao::mostraMtrip(){
+void Mtripulacao::mostraUni(){
 	ostringstream os;
 
 	os << "Tripulante com ID " << getId() << "Vida:" << getVida() << endl << "Dano: " << getDano() << endl << "Estou na sala: " << getOndeEstou() << endl;
 
-	return os.str();
 }
 
 void Mtripulacao::fazInicio(){

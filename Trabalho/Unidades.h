@@ -66,6 +66,7 @@ public:
 	virtual void fazInicio();	
 	virtual void fazOrdens();
 	virtual void fazFim();
+	virtual void mostraUni();
 
 
 

@@ -6,7 +6,7 @@
 class SuporteVida : public Sala{
 public:
 	SuporteVida();
-	virtual string mostraSuporte();
+	string mostra();
 };
 
 #endif 

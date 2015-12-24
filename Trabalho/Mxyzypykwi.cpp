@@ -15,11 +15,10 @@ Mxyz::Mxyz():Xenomorfo(){
 	respira();
 }
 
-string Mxyz::mostraMxyz(){
+void Mxyz::mostraUni(){
 	ostringstream os;
 
 	os << "MXYZ com ID " << getId() << "Vida:" << getVida() << endl << "Dano: " << getDano() << endl << "Estou na sala: " << getOndeEstou() << endl;
 
-	return os.str();
 }
 

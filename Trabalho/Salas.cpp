@@ -15,6 +15,10 @@ Sala::~Sala(){
 
 }
 
+void Sala::addUnidade(Unidades *u){
+	unidades.push_back(u);
+}
+
 string Sala::getNome(){
 	return nome;
 }
@@ -63,9 +67,12 @@ string Sala::mostraSala(){
 
 	os << "Nome: " << getNome() << " Vida: " << getVida() << " Oxigenio: " << getOxigenio() << "Integridade: " << getIntegridade() << endl;
 
-	for (int i = 0; unidades.size(); i++){
-		os << unidades[i]  << endl;
-	}
-
 	return os.str();
+}
+
+
+string Sala::mostra(){
+	string xpto = "XXXXX";
+
+	return xpto;
 }

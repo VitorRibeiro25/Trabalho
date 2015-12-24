@@ -15,10 +15,9 @@ Geigemorfo::Geigemorfo():Xenomorfo(){
 	exoesqueleto(3);
 }
 
-string Geigemorfo::mostraGei(){
+void Geigemorfo::mostraUni(){
 	ostringstream os;
 
 	os << "Geigemorfo com ID " << getId() << "Vida:" << getVida() << endl << "Dano: " << getDano() << endl << "Estou na sala: " << getOndeEstou() << endl;
 
-	return os.str();
 }

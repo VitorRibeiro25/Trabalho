@@ -14,12 +14,10 @@ Inimigo::Inimigo():Unidades(){
 	fazFim();
 }
 
-string Inimigo::mostraInimigo(){
+void Inimigo::mostraUni(){
 	ostringstream os;
 
 	os << "Pirata com ID " << getId() << "Vida:" << getVida() << endl << "Dano: " << getDano() << endl << "Estou na sala: " << getOndeEstou() << endl;
-
-	return os.str();
 }
 
 void Inimigo::fazInicio(){

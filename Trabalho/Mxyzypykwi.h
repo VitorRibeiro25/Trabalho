@@ -7,7 +7,7 @@ class Mxyz : public Xenomorfo{
 	static int id_mxyz;
 public:
 	Mxyz();
-	virtual string mostraMxyz();
+	void mostraUni();
 };
 
 #endif

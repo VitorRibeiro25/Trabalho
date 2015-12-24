@@ -7,7 +7,7 @@ class Casulo : public Xenomorfo{
 	static int id_cas;
 public:
 	Casulo();
-	virtual string mostraCasulo();
+	void mostraUni();
 
 };
 

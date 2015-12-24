@@ -6,7 +6,7 @@ class Maquinas : public Sala{
 
 public:
 	Maquinas();
-	virtual string mostraMaquina();
+	string mostra();
 
 };
 

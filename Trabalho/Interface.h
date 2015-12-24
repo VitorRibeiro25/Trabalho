@@ -3,6 +3,9 @@
 
 #include "consola.h"
 #include "PreparaJogo.h"
+#include "Nave.h"
+#include "Salas.h"
+#include "Unidades.h"
 #include "utils.h"
 
 
@@ -19,7 +22,11 @@ public:
 	void MenuInterface();
 	void ComecaInterface();
 	void ComecaMapaJogo();
+	void mostraColsJogo(int x);
+	void mostraLinsJogo(int y);
 
+	void DesenhaNave();
+	void DesenhaLimites();
 	void BoxMap();
 	void BoxInformations();
 	void BoxCommands();

@@ -17,11 +17,10 @@ Blob::Blob() :Xenomorfo(){
 	move(15);
 }
 
-string Blob::mostraBlob(){
+void Blob::mostraUni(){
 	ostringstream os;
 
 	os << "Blob com ID " << getId() << "Vida:" << getVida() << endl << "Dano: " << getDano() << endl << "Estou na sala: " << getOndeEstou() << endl;
 
-	return os.str();
 }
 

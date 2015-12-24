@@ -7,7 +7,7 @@ class Escudo : public Sala{
 
 public:
 	Escudo();
-	virtual string mostraEscudo();
+	string mostra();
 };
 
 #endif

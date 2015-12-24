@@ -4,19 +4,36 @@
 using namespace std;
 
 Nave::Nave(){
-	for (int i = 0; i < (int)salas[LIN][COL]; i++){
-		for (int j = 0; j < (int)salas[LIN][COL]; j++){
-			Sala *s = new Sala();
+	for (int i = 0; i < LIN; i++){
+		for (int j = 0; j < COL; j++){
+			salas[i][j] = NULL;
 		}
 	}
 }
 
+void Nave::adicionaSala(Sala *s, int x, int y){
+	
+	if (salas[x][y] != NULL){
+		return;
+	}
+	salas[x][y] = s;
+}
+
+void Nave::adcionaUnidade(Unidades *u, int x, int y){
+	
+	salas[x][y]->addUnidade(u);
+}
+
 Nave::~Nave(){
-	for (int i = 0; i < (int)salas[LIN][COL]; i++){
-		for (int j = 0; j < (int)salas[LIN][COL]; j++){
+	for (int i = 0; i < LIN; i++){
+		for (int j = 0; j < COL; j++){
 			delete salas[i][j];
 		}
 	}
+}
+
+Sala *Nave::getSalaXY(int x, int y){
+	return salas[x][y];
 }
 
 
@@ -24,9 +41,10 @@ string Nave::mostraNave(){
 
 	ostringstream os;
 
-	for (int i = 0; i < (int)salas[LIN][COL]; i++){
-		for (int j = 0; j < (int)salas[LIN][COL];j++)
-		os << salas[i][j]->mostraSala() << endl;
+	for (int i = 1; i < LIN; i++){
+		for (int j = 1; j < COL; j++){
+			os << salas[i][j]->mostraSala() << endl;
+		}
 	}
 
 	return os.str();

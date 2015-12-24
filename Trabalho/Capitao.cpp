@@ -18,12 +18,11 @@ Capitao::Capitao():Tripulacao(){
 
 }
 
-string Capitao::mostraCapitao(){
+void Capitao::mostraUni(){
 	ostringstream os;
 
 	os << "Capitao com ID " << getId() << "Vida:" << getVida() << endl << "Dano: " << getDano() << endl << "Estou na sala: " << getOndeEstou() << endl;
 
-	return os.str();
 }
 
 void Capitao::fazInicio(){

@@ -14,12 +14,11 @@ Robot::Robot():Tripulacao(){
 
 }
 
-string Robot::mostraRobot(){
+void Robot::mostraUni(){
 	ostringstream os;
 
 	os << "Robot com ID " << getId() << "Vida:" << getVida() << endl << "Dano: " << getDano() << endl << "Estou na sala: " << getOndeEstou() << endl;
 
-	return os.str();
 }
 
 void Robot::fazOrdens(){

@@ -6,9 +6,8 @@ Xenomorfo::Xenomorfo():Unidades(){
 	id_xeno++;
 }
 
-string Xenomorfo::mostraXeno(){
+void Xenomorfo::mostraUni(){
 
 	ostringstream os;
 
-	return os.str();
 }

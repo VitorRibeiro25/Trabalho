@@ -7,7 +7,7 @@ class Tripulacao : public Unidades{
 	static int id_trip;
 public:
 	Tripulacao();
-	virtual string mostraTripulacao();
+	void mostraUni();
 
 };
 

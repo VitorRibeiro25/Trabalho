@@ -7,7 +7,7 @@ class Propulsor : public Sala {
 
 public:
 	Propulsor();
-	virtual string mostraPropulsor();
+	string mostra();
 };
 
 

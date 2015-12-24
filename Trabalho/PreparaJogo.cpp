@@ -21,7 +21,7 @@
 //aqui tudo se vai passar na criação do jogo
 
 PreparaJogo::PreparaJogo(){
-
+	n = new Nave();
 }
 
 void errorMsg(string error){
@@ -70,10 +70,33 @@ void PreparaJogo::ajudaUnidades(){
 }
 
 void PreparaJogo::ajudaAntesJogo(){
+	Consola c;
+	c.clrscr();
+	cout << "Ajuda Jogo:" << endl << endl;
+	cout << "Comandos disponiveis:" << endl << endl;
+	cout << "jogar - Comando que leva o utilizador para o inicio do jogo" << endl << endl;
+	cout << "sair - sai do programa" << endl << endl;
+	ajudaSalas();
+	cout << endl << endl;
+	ajudaUnidades();
+	cout << endl << endl;
+	cout << "PRESSIONE QUALQUER TECLA PARA VOLTAR AO MENU";
+	c.getch();
+	c.clrscr();
+
+	return;
 
 }
 
 void PreparaJogo::Prepjogo(){
+	Consola c;
+	c.clrscr();
+	c.gotoxy(5, 10);
+	for (int i = 1; i < LIN; i++){
+		for (int j = 1; j < COL; j++){
+
+		}
+	}
 
 }
 
@@ -82,8 +105,6 @@ bool PreparaJogo::comandosJogo(string input, bool &erro){
 
 	erro = false;
 
-	// falta fazer verificacoes
-
 	istringstream in(input);
 	in >> nomeFuncao;
 
@@ -91,41 +112,74 @@ bool PreparaJogo::comandosJogo(string input, bool &erro){
 		in >> name >> name2;
 
 		if (name == "pon"){
-			addPonte();
+
+				if (n->getSalaXY(2,4) != NULL){
+					errorMsg("A sala Ponte ja existe!");
+				}
+				else{
+					n->adicionaSala(new Ponte(), 2, 4);
+				}
+			}
+
 		}
 
 		else if (name == "svid"){
-			addSupVida();
+					if (n->getSalaXY(2,2) != NULL){
+						errorMsg("A sala Sup. Vida ja exite!");
+					}
+					else {
+						n->adicionaSala(new SuporteVida(), 2, 2);
+					}
+
 		}
 
 		else if (name == "esc"){
-			addEscudo();
+					if (n->getSalaXY(2,3) != NULL){
+						errorMsg("A sala do Escudo ja exite!");
+					}
+					else {
+						n->adicionaSala(new Escudo(), 2, 3);
+					}
+				
 		}
 
 		else if (name == "maq"){
-			addMaquina();
+
+					if (n->getSalaXY(2,1) != NULL){
+						errorMsg("A sala das Maquinas ja exite!");
+					}
+					else {
+						n->adicionaSala(new Maquinas, 2, 1);
+					}
+				
 		}
 
 		else if (name == "pro"){
-			addPropulsor();
-		}
-
+					if (n->getSalaXY(1,1) != NULL){
+						errorMsg("A sala 1 do Propulsor ja existe!");
+					}
+					if (n->getSalaXY(3,1) != NULL){
+						errorMsg("A sala 2 do Propulsor ja existe!");
+					}
+					if (n->getSalaXY(1,1) == NULL){
+						n->adicionaSala(new Propulsor(), 1, 1);
+					}
+					if (n->getSalaXY(3, 1) == NULL){
+						n->adicionaSala(new Propulsor(), 3, 1);
+					}
 	}
 
 	else if (nomeFuncao == "addtripulante"){
 		in >> name >> name2;
 
 		if (name == "tpn"){
-			addMtrip();
 
 		}
 		else if (name == "cap"){
-			addCapitao();
 
 		}
 		else if (name == "rob"){
-			addRobot();
-
+			
 		}
 
 	}
@@ -133,30 +187,29 @@ bool PreparaJogo::comandosJogo(string input, bool &erro){
 	else if (nomeFuncao == "addinimigo"){
 		in >> name >> name2;
 		if (name == "pir"){
-			addInimigo();
+
 		}
 	}
 
 	else if (nomeFuncao == "addxenomorfo"){
 		in >> name >> name2;
 		if (name == "gei"){
-			addGeige();
+
 		}
 
 		else if (name == "cas"){
-			addCasulo();
+
 		}
 		else if (name == "blob"){
-			addBlob();
 
 		}
 		else if (name == "mxyz"){
-			addMxyz();
+
 		}
 	}
 
 	else if (nomeFuncao == "jogar"){
-		Prepjogo();
+
 	}
 
 	else if (nomeFuncao == "ajuda"){
@@ -171,8 +224,8 @@ bool PreparaJogo::comandosJogo(string input, bool &erro){
 	}
 
 	else {
-		erroMsg("Comando Incorreto! por favor introduza outro!");
 		erro = true;
+		errorMsg("Comando Incorreto! por favor introduza outro!");
 	}
 
 	ApagaErrorMsg();
@@ -180,9 +233,7 @@ bool PreparaJogo::comandosJogo(string input, bool &erro){
 }
 
 
-
-
-bool PreparaJogo::comandosMenu(){
+void PreparaJogo::comandosMenu(){
 	Consola c;
 	string input, nomefunc;
 	
@@ -198,16 +249,16 @@ bool PreparaJogo::comandosMenu(){
 		}
 		else if (nomefunc == "jogar"){
 			Prepjogo();
+			return;
 		}
 		else if (nomefunc == "ajuda"){
-			
+			ajudaAntesJogo();
 		}
 		else{
 			errorMsg("Comando incorreto! Por favor introduza outro!");
 		}
 		ApagaErrorMsg();
-	} while (error == true);
-	return false;
+	} while (1);
 
 }
 
@@ -232,6 +283,10 @@ void PreparaJogo::setposXY(int x, int y){
 	posY = y;
 }
 
+Nave *PreparaJogo::getNave(){
+	return n;
+}
+
 void PreparaJogo::setLinhas(int lin){
 	linhas = lin;
 }
@@ -246,59 +301,5 @@ void PreparaJogo::setX(int x){
 
 void PreparaJogo::setY(int y){
 	posY = y;
-}
-
-void PreparaJogo::addEscudo(){
-	salas[2][3] = new Escudo;
-}
-
-void PreparaJogo::addMaquina(){
-	salas[2][1] = new Maquinas;
-}
-
-void PreparaJogo::addPonte(){
-	salas[2][4] = new Ponte;
-}
-
-void PreparaJogo::addPropulsor(){
-	if (salas[1][1] == nullptr)
-		salas[1][1] = new Propulsor;
-	else salas[3][1] = new Propulsor;
-}
-
-void PreparaJogo::addSupVida(){
-	salas[2][2] = new SuporteVida;
-}
-
-void PreparaJogo::addInimigo(){
-	unidades.push_back(new Inimigo);
-}
-
-void PreparaJogo::addBlob(){
-	unidades.push_back(new Blob);
-}
-
-void PreparaJogo::addCapitao(){
-	unidades.push_back(new Capitao);
-}
-
-void PreparaJogo::addCasulo(){
-	unidades.push_back(new Casulo);
-}
-
-void PreparaJogo::addGeige(){
-	unidades.push_back(new Geigemorfo);
-}
-
-void PreparaJogo::addMtrip(){
-	unidades.push_back(new Mtripulacao);
-}
-
-void PreparaJogo::addMxyz(){
-	unidades.push_back(new Mxyz);
-}
-
-void PreparaJogo::addRobot(){
-	unidades.push_back(new Robot);
 }
 

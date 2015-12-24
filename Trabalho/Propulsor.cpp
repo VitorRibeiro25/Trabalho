@@ -7,7 +7,7 @@ Propulsor::Propulsor() :Sala(){
 	setIntegridade(100);
 }
 
-string Propulsor::mostraPropulsor(){
+string Propulsor::mostra(){
 	ostringstream os;
 
 	os << "Propulsor com ID: " << getID() << endl << "Vida: " << getVida() << endl << "Oxigenio: " << getOxigenio() << endl << "Integridade: " << getIntegridade() << endl;

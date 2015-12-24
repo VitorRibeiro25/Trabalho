@@ -7,7 +7,7 @@ Maquinas::Maquinas():Sala(){
 	setIntegridade(100);
 }
 
-string Maquinas::mostraMaquina(){
+string Maquinas::mostra(){
 	ostringstream os;
 
 	os << "Maquina com ID: " << getID() << endl << "Vida: " << getVida() << endl << "Oxigenio: " << getOxigenio() << endl << "Integridade: " << getIntegridade() << endl;

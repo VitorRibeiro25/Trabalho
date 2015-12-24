@@ -7,7 +7,7 @@ class Geigemorfo : public Xenomorfo{
 	static int id_gei;
 public:
 	Geigemorfo();
-	virtual string mostraGei();
+	void mostraUni();
 };
 
 #endif

@@ -13,6 +13,7 @@ class Sala{
 	vector <Unidades *> unidades;
 	string nome;
 	static int id_sal;
+	int x, y;
 	int vida, oxigenio, integridade;
 public:
 
@@ -26,6 +27,8 @@ public:
 	int getOxigenio();
 	int getIntegridade();
 	int getID();
+	int getX();
+	int getY();
 
 	//funcoes sets
 	void setNome(string name);
@@ -34,10 +37,12 @@ public:
 	void setIntegridade(int integri);
 	void setID(int id);
 
+	void addUnidade(Unidades *s);
 	//funcao de mostrar
 	string mostraSala();
 
 	// faz accoes
+	virtual string mostra();
 };
 
 #endif

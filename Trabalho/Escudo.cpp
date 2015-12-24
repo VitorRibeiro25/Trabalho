@@ -7,7 +7,7 @@ Escudo::Escudo():Sala(){
 	setIntegridade(100);
 }
 
-string Escudo::mostraEscudo(){
+string Escudo::mostra(){
 	ostringstream os;
 
 	os << "Escudo com ID: " << getID() << endl << "Vida: " << getVida() << endl << "Oxigenio: " << getOxigenio() << endl << "Integridade: " << getIntegridade() << endl;

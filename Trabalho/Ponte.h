@@ -6,7 +6,7 @@ class Ponte : public Sala{
 
 public:
 	Ponte();
-	virtual string mostraPonte();
+	string mostra();
 
 };
 

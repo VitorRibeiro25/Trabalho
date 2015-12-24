@@ -7,10 +7,10 @@ class Capitao : public Tripulacao{
 	static int id_cap;
 public:
 	Capitao();
-	virtual string mostraCapitao();
-	virtual void fazInicio();
-	virtual void fazOrdens();
-	virtual void fazFim();
+	void mostraUni();
+	void fazInicio();
+	void fazOrdens();
+	void fazFim();
 };
 
 #endif
