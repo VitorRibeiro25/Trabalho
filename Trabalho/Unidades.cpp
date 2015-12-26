@@ -5,16 +5,9 @@ using namespace std;
 
 int Unidades::contador = 0;
 
-Unidades::Unidades(string name){
-
-	nome = name;
-
+Unidades::Unidades(int x, int y){
+	setPos(x, y);
 	id_uni = contador++;
-
-}
-
-Unidades::Unidades(){
-
 }
 
 Unidades::~Unidades(){
@@ -27,6 +20,14 @@ string Unidades::getNome(){
 
 int Unidades::getId(){
 	return id_uni;
+}
+
+int Unidades::getLin(){
+	return lin;
+}
+
+int Unidades::getCol(){
+	return col;
 }
 
 int Unidades::getVida(){
@@ -53,6 +54,19 @@ void Unidades::setId(int id){
 	id_uni = id;
 }
 
+void Unidades::setLin(int x){
+	lin = x;
+}
+
+void Unidades::setCol(int y){
+	col = y;
+}
+
+void Unidades::setPos(int x, int y){
+	lin = x;
+	col = y;
+}
+
 void Unidades::setVida(int vid){
 	vida = vid;
 }
@@ -69,12 +83,10 @@ void Unidades::setOxigenio(Sala *s){
 	oxigenio = s;
 }
 
-string Unidades::mostraUnidades(){
-	ostringstream os;
+string Unidades::mostraUnidade(){
+	string v = " ";
 
-	os << "Nome: " << getNome() << " ID: " << getId() << "Vida: " << getVida() << endl;
-
-	return os.str();
+	return v;
 }
 
 

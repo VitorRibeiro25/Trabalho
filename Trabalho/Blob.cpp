@@ -2,25 +2,39 @@
 
 int Blob::id_blob = 0;
 
-Blob::Blob() :Xenomorfo(){
+Blob::Blob(int x, int y):Unidades(x,y){
 	setNome("BLOB");
 	id_blob++;
 	setId(id_blob);
 	setVida(100);
 	setDano(100);
-	xenomorfo(0);
-	regenerador(2);
-	flamejante();
-	toxico(0); // rever aqui
-	reparador(6);
-	operador();
-	move(15);
+	fazInicio();
+	fazOrdens();
+	fazFim();
 }
 
-void Blob::mostraUni(){
+string Blob::mostraUnidade(){
 	ostringstream os;
 
 	os << "Blob com ID " << getId() << "Vida:" << getVida() << endl << "Dano: " << getDano() << endl << "Estou na sala: " << getOndeEstou() << endl;
+
+	return os.str();
+}
+
+void Blob::fazInicio(){
+	regenerador(2);	
+	flamejante();	
+	toxico(0); // rever aqui	
+	move(15);
+}
+
+void Blob::fazOrdens(){
+	operador();
+}
+
+void Blob::fazFim(){
+	xenomorfo(0);	
+	reparador(6);
 
 }
 

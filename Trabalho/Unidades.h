@@ -9,20 +9,22 @@ using namespace std;
 class Unidades{
 	string nome;
 	int vida, dano;
+	int lin, col;
 	static int contador;
 	int id_uni;
 	Sala *ondeEstou;
 	Sala *oxigenio;
 public:
 	// construtor e destrutor
-	Unidades(string name);
-	Unidades();
+	Unidades(int x, int y);
 	~Unidades();
 
 	// funcoes gets
 	string getNome();
 	int getId();
 	int getVida();
+	int getLin();
+	int getCol();
 	int getDano();
 	Sala *getOndeEstou();
 	Sala *getOxigenio();
@@ -32,11 +34,14 @@ public:
 	void setId(int id);
 	void setVida(int vid);
 	void setDano(int dan);
+	void setLin(int x);
+	void setCol(int y);
+	void setPos(int x, int y);
 	void setOndeEstou(Sala *s);
 	void setOxigenio(Sala *s);
 
 	// funcao de mostrar
-	string mostraUnidades();
+	virtual string mostraUnidade();
 
 	// carateristicas para as unidades
 	// prob - probablilidade
@@ -66,8 +71,6 @@ public:
 	virtual void fazInicio();	
 	virtual void fazOrdens();
 	virtual void fazFim();
-	virtual void mostraUni();
-
 
 
 };

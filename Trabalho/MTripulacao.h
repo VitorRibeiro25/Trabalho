@@ -1,14 +1,14 @@
 #ifndef MTRIPULACAO_H
 #define MTRIPULACAO_H
 #include "utils.h"
-#include "Tripulacao.h"
+#include "Unidades.h"
 
 
-class Mtripulacao : public Tripulacao{
+class Mtripulacao : public Unidades{
 	static int id_mtrip;
 public:
-	Mtripulacao();
-	void mostraUni();
+	Mtripulacao(int x, int y);
+	string mostraUnidade();
 	void fazInicio();
 	void fazOrdens();
 	void fazFim();

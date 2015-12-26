@@ -108,16 +108,10 @@
     <ClCompile Include="Mxyzypykwi.cpp">
       <Filter>Source Files\Unidades\Xenomorfos</Filter>
     </ClCompile>
-    <ClCompile Include="Xenomorfo.cpp">
-      <Filter>Source Files\Unidades\Xenomorfos</Filter>
-    </ClCompile>
     <ClCompile Include="Capitao.cpp">
       <Filter>Source Files\Unidades\Tripulantes</Filter>
     </ClCompile>
     <ClCompile Include="MTripulacao.cpp">
-      <Filter>Source Files\Unidades\Tripulantes</Filter>
-    </ClCompile>
-    <ClCompile Include="Tripulacao.cpp">
       <Filter>Source Files\Unidades\Tripulantes</Filter>
     </ClCompile>
     <ClCompile Include="Robot.cpp">
@@ -149,9 +143,6 @@
     <ClInclude Include="Nave.h">
       <Filter>Header Files\Nave</Filter>
     </ClInclude>
-    <ClInclude Include="Xenomorfo.h">
-      <Filter>Header Files\Unidades\Xenomorfos</Filter>
-    </ClInclude>
     <ClInclude Include="Mxyzypykwi.h">
       <Filter>Header Files\Unidades\Xenomorfos</Filter>
     </ClInclude>
@@ -174,9 +165,6 @@
       <Filter>Header Files\Unidades\Tripulantes</Filter>
     </ClInclude>
     <ClInclude Include="Robot.h">
-      <Filter>Header Files\Unidades\Tripulantes</Filter>
-    </ClInclude>
-    <ClInclude Include="Tripulacao.h">
       <Filter>Header Files\Unidades\Tripulantes</Filter>
     </ClInclude>
     <ClInclude Include="Propulsor.h">

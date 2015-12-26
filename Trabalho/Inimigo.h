@@ -7,8 +7,8 @@
 class Inimigo : public Unidades{
 	static int id_ini;
 public:
-	Inimigo();
-	void mostraUni();
+	Inimigo(int x, int y);
+	string mostraUnidade();
 	void fazInicio();
 	void fazFim();
 };

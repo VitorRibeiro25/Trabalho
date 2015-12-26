@@ -1,13 +1,17 @@
 #ifndef GEIGEMORFO_H
 #define GEIFEMORFO_H
 #include "utils.h"
-#include "Xenomorfo.h"
+#include "Unidades.h"
 
-class Geigemorfo : public Xenomorfo{
+class Geigemorfo : public Unidades{
 	static int id_gei;
 public:
-	Geigemorfo();
-	void mostraUni();
+	Geigemorfo(int x, int y);
+	string mostraUnidade();
+
+	void fazInicio();
+	void fazOrdens();
+	void fazFim();
 };
 
 #endif

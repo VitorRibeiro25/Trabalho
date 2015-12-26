@@ -65,7 +65,7 @@ void Sala::setID(int id){
 string Sala::mostraSala(){
 	ostringstream os;
 
-	os << "Nome: " << getNome() << " Vida: " << getVida() << " Oxigenio: " << getOxigenio() << "Integridade: " << getIntegridade() << endl;
+	os << "Nome: " << getNome() << endl << " Vida: " << getVida() << endl << " Oxigenio: " << getOxigenio() << endl << "Integridade: " << getIntegridade() << endl;
 
 	return os.str();
 }
@@ -76,3 +76,11 @@ string Sala::mostra(){
 
 	return xpto;
 }
+
+/*
+void Sala::inicioTurno(){
+	for (int i = 0; i < unidades.size(); i++){
+		unidades[i]->fazInicio();
+	}
+}
+*/

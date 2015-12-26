@@ -37,12 +37,19 @@ public:
 	void setIntegridade(int integri);
 	void setID(int id);
 
+	// funcao de adicionar
 	void addUnidade(Unidades *s);
+	
 	//funcao de mostrar
 	string mostraSala();
 
 	// faz accoes
 	virtual string mostra();
-};
 
+	// funcoes de turnos
+
+	void inicioTurno();
+	void faseOrdens();
+	void fimTurno();
+};
 #endif

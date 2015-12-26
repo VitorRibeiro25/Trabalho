@@ -2,7 +2,7 @@
 
 int Mtripulacao::id_mtrip = 0;
 
-Mtripulacao::Mtripulacao():Tripulacao(){
+Mtripulacao::Mtripulacao(int x, int y):Unidades(x,y){
 	setNome("TRI");
 	id_mtrip++;
 	setId(id_mtrip);
@@ -13,11 +13,12 @@ Mtripulacao::Mtripulacao():Tripulacao(){
 	fazFim();
 }
 
-void Mtripulacao::mostraUni(){
+string Mtripulacao::mostraUnidade(){
 	ostringstream os;
 
 	os << "Tripulante com ID " << getId() << "Vida:" << getVida() << endl << "Dano: " << getDano() << endl << "Estou na sala: " << getOndeEstou() << endl;
 
+	return os.str();
 }
 
 void Mtripulacao::fazInicio(){

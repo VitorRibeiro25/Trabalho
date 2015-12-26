@@ -1,13 +1,13 @@
 #ifndef CAPITAO_H
 #define CAPITAO_H
 #include "utils.h"
-#include "Tripulacao.h"
+#include "Unidades.h"
 
-class Capitao : public Tripulacao{
+class Capitao : public Unidades{
 	static int id_cap;
 public:
-	Capitao();
-	void mostraUni();
+	Capitao(int x, int y);
+	string mostraUnidade();
 	void fazInicio();
 	void fazOrdens();
 	void fazFim();

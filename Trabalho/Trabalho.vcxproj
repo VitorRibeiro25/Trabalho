@@ -97,10 +97,8 @@
     <ClCompile Include="Robot.cpp" />
     <ClCompile Include="Salas.cpp" />
     <ClCompile Include="SuporteVida.cpp" />
-    <ClCompile Include="Tripulacao.cpp" />
     <ClCompile Include="Unidades.cpp" />
     <ClCompile Include="utils.cpp" />
-    <ClCompile Include="Xenomorfo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\..\..\ISEC\3º ano\POO\consola.h" />
@@ -121,10 +119,8 @@
     <ClInclude Include="Robot.h" />
     <ClInclude Include="Salas.h" />
     <ClInclude Include="SuporteVida.h" />
-    <ClInclude Include="Tripulacao.h" />
     <ClInclude Include="Unidades.h" />
     <ClInclude Include="utils.h" />
-    <ClInclude Include="Xenomorfo.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

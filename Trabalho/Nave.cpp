@@ -6,7 +6,7 @@ using namespace std;
 Nave::Nave(){
 	for (int i = 0; i < LIN; i++){
 		for (int j = 0; j < COL; j++){
-			salas[i][j] = NULL;
+			salas[i][j] = new Sala();
 		}
 	}
 }
@@ -36,6 +36,13 @@ Sala *Nave::getSalaXY(int x, int y){
 	return salas[x][y];
 }
 
+int Nave::getLin(){
+	return Lin;
+}
+
+int Nave::getCol(){
+	return Col;
+}
 
 string Nave::mostraNave(){
 

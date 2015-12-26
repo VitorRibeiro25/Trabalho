@@ -1,13 +1,17 @@
 #ifndef BLOB_H
 #define BLOB_H
 #include "utils.h"
-#include "Xenomorfo.h"
+#include "Unidades.h"
 
-class Blob : public Xenomorfo{
+class Blob : public Unidades{
 	static int id_blob;
 public:
-	Blob();
-	void mostraUni();
+	Blob(int x, int y);
+	string mostraUnidade();
+	void fazInicio();
+	void fazOrdens();
+	void fazFim();
+
 };
 
 #endif

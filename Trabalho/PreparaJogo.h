@@ -64,6 +64,8 @@ public:
 
 	// funcao de mostrar
 	void mostra();
+	void infoSala();
+	void infoUni();
 };
 
 

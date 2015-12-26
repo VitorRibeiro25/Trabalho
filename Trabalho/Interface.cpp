@@ -13,10 +13,6 @@ void Interface::menu(){
 	}
 }
 
-
-
-
-
 void Interface::Comeca(){
 	string input;
 	bool error = true;
@@ -100,11 +96,11 @@ void Interface::DesenhaNave(){
 	c.setTextColor(c.BRANCO);
 	
 	DesenhaLimites();
-
-	c.gotoxy(2, 5);
 	for (int i = 0; i < LIN; i++){
-		for (int j = 0; j < COL; j++){	
+		for (int j = 0; j < COL; j++){					
+			c.gotoxy(10,12);
 			if (start->getNave()->getSalaXY(i, j) == NULL){
+
 				cout << "VAZ ";
 			}
 			else{

@@ -3,7 +3,7 @@
 int Capitao::id_cap = 0;
 
 
-Capitao::Capitao():Tripulacao(){
+Capitao::Capitao(int x, int y):Unidades(x, y){
 
 	setNome("CAP");
 	id_cap++;
@@ -18,11 +18,12 @@ Capitao::Capitao():Tripulacao(){
 
 }
 
-void Capitao::mostraUni(){
+string Capitao::mostraUnidade(){
 	ostringstream os;
 
 	os << "Capitao com ID " << getId() << "Vida:" << getVida() << endl << "Dano: " << getDano() << endl << "Estou na sala: " << getOndeEstou() << endl;
 
+	return os.str();
 }
 
 void Capitao::fazInicio(){

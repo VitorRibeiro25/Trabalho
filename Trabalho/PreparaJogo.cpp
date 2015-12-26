@@ -1,6 +1,7 @@
 #include "utils.h"
 #include "PreparaJogo.h"
 
+#include "Salas.h"
 #include "Ponte.h"
 #include "Escudo.h"
 #include "Maquinas.h"
@@ -8,8 +9,6 @@
 #include "SuporteVida.h"
 
 #include "Inimigo.h"
-#include "Tripulacao.h"
-#include "Xenomorfo.h"
 #include "Blob.h"
 #include "Capitao.h"
 #include "Casulo.h"
@@ -37,7 +36,9 @@ void errorMsg(string error){
 }
 
 void PreparaJogo::ajudaSalas(){
-
+	Consola c;
+	c.gotoxy(10, 10);
+	c.clrscr();
 	cout << "AJUDA AO JOGADOR" << endl;
 	cout << "LISTA DE COMANDOS:" << endl;
 	cout << "addsala NAME" << endl;
@@ -47,10 +48,15 @@ void PreparaJogo::ajudaSalas(){
 	cout << "esc - Controlo de Escudo (Criacao da sala do Controlo de Escudo)" << endl;
 	cout << "maq - Sala das Maquinas (Criacao da sala das maquinas)" << endl;
 	cout << "pro - Propulsor (Criacao de um propulsor (podem ser adicionados dois sem ser os opcionais))" << endl;
-
+	c.getch();
+	c.clrscr();
+	return;
 }
 
 void PreparaJogo::ajudaUnidades(){
+	Consola c;
+	c.gotoxy(10, 10);
+	c.clrscr();
 	cout << "AJUDA AO JOGADOR" << endl;
 	cout << "LISTA DE COMANDOS: " << endl;
 	cout << "addtripulante NAME" << endl;
@@ -67,6 +73,9 @@ void PreparaJogo::ajudaUnidades(){
 	cout << "cas - Casulo do Geigemorfo (Criacao do casulo para o Geigemorfo)" << endl;
 	cout << "blob - Blob (Criacao da unidade Blob)" << endl;
 	cout << "mxyz - Mxyz (Criacao da unidade Mxyz)" << endl;
+	c.getch();
+	c.clrscr();
+	return;
 }
 
 void PreparaJogo::ajudaAntesJogo(){
@@ -76,10 +85,6 @@ void PreparaJogo::ajudaAntesJogo(){
 	cout << "Comandos disponiveis:" << endl << endl;
 	cout << "jogar - Comando que leva o utilizador para o inicio do jogo" << endl << endl;
 	cout << "sair - sai do programa" << endl << endl;
-	ajudaSalas();
-	cout << endl << endl;
-	ajudaUnidades();
-	cout << endl << endl;
 	cout << "PRESSIONE QUALQUER TECLA PARA VOLTAR AO MENU";
 	c.getch();
 	c.clrscr();
@@ -109,7 +114,7 @@ bool PreparaJogo::comandosJogo(string input, bool &erro){
 	in >> nomeFuncao;
 
 	if (nomeFuncao == "addsala"){
-		in >> name >> name2;
+		in >> name;
 
 		if (name == "pon"){
 
@@ -149,7 +154,7 @@ bool PreparaJogo::comandosJogo(string input, bool &erro){
 						errorMsg("A sala das Maquinas ja exite!");
 					}
 					else {
-						n->adicionaSala(new Maquinas, 2, 1);
+						n->adicionaSala(new Maquinas(), 2, 1);
 					}
 				
 		}
@@ -170,41 +175,99 @@ bool PreparaJogo::comandosJogo(string input, bool &erro){
 	}
 
 	else if (nomeFuncao == "addtripulante"){
-		in >> name >> name2;
+		in >> name >> linhas >> colunas;
 
 		if (name == "tpn"){
-
+			int x = n->getLin();
+			int y = n->getCol();
+			if (n->getSalaXY(x, y) == NULL){
+				errorMsg("A sala com as Coordenadas indicadas nao exite!");
+			}
+			else{
+				n->adcionaUnidade(new Unidades(x,y), x, y);
+			}
 		}
 		else if (name == "cap"){
-
+			int x = n->getLin();
+			int y = n->getCol();
+			if (n->getSalaXY(x, y) == NULL){
+				errorMsg("A sala com as Coordenadas indicadas nao exite!");
+			}
+			else{
+				n->adcionaUnidade(new Capitao(x, y), x, y);
+			}
 		}
 		else if (name == "rob"){
-			
+			int x = n->getLin();
+			int y = n->getCol();
+			if (n->getSalaXY(x, y) == NULL){
+				errorMsg("A sala com as Coordenadas indicadas nao exite!");
+			}
+			else{
+				n->adcionaUnidade(new Robot(x, y), x, y);
+			}
 		}
 
 	}
 
 	else if (nomeFuncao == "addinimigo"){
-		in >> name >> name2;
+		in >> name;
 		if (name == "pir"){
-
+			int x = n->getLin();
+			int y = n->getCol();
+			if (n->getSalaXY(x, y) == NULL){
+				errorMsg("A sala com as Coordenadas indicadas nao exite!");
+			}
+			else{
+				n->adcionaUnidade(new Inimigo(x, y), x, y);
+			}
 		}
 	}
 
 	else if (nomeFuncao == "addxenomorfo"){
-		in >> name >> name2;
+		in >> name;
 		if (name == "gei"){
-
+			int x = n->getLin();
+			int y = n->getCol();
+			if (n->getSalaXY(x, y) == NULL){
+				errorMsg("A sala com as Coordenadas indicadas nao exite!");
+			}
+			else{
+				n->adcionaUnidade(new Geigemorfo(x, y), x, y);
+			}
 		}
 
 		else if (name == "cas"){
+			int x = n->getLin();
+			int y = n->getCol();
+			if (n->getSalaXY(x, y) == NULL){
+				errorMsg("A sala com as Coordenadas indicadas nao exite!");
+			}
+			else{
+				n->adcionaUnidade(new Casulo(x, y), x, y);
+			}
 
 		}
 		else if (name == "blob"){
+			int x = n->getLin();
+			int y = n->getCol();
+			if (n->getSalaXY(x, y) == NULL){
+				errorMsg("A sala com as Coordenadas indicadas nao exite!");
+			}
+			else{
+				n->adcionaUnidade(new Blob(x, y), x, y);
+			}
 
 		}
 		else if (name == "mxyz"){
-
+			int x = n->getLin();
+			int y = n->getCol();
+			if (n->getSalaXY(x, y) == NULL){
+				errorMsg("A sala com as Coordenadas indicadas nao exite!");
+			}
+			else{
+				n->adcionaUnidade(new Mxyz(x, y), x, y);
+			}
 		}
 	}
 
@@ -213,7 +276,7 @@ bool PreparaJogo::comandosJogo(string input, bool &erro){
 	}
 
 	else if (nomeFuncao == "ajuda"){
-		in >> name >> name2;
+		in >> name;
 		if (name == "salas"){
 			ajudaSalas();
 		}
@@ -221,6 +284,25 @@ bool PreparaJogo::comandosJogo(string input, bool &erro){
 			ajudaUnidades();
 		}
 
+	}
+	
+	else if (nomeFuncao == "versala"){
+		in >> name;
+		if (name == "pon"){
+			infoSala();
+		}
+		else if (name == "svid"){
+
+		}
+		else if (name == "pro"){
+
+		}
+		else if (name == "maq"){
+
+		}
+		else if (name == "esc"){
+
+		}
 	}
 
 	else {
@@ -259,6 +341,34 @@ void PreparaJogo::comandosMenu(){
 		}
 		ApagaErrorMsg();
 	} while (1);
+
+}
+
+void PreparaJogo::infoSala(){
+	Consola c;
+	string Nome = n->getSalaXY(2, 4)->getNome();
+	int id = n->getSalaXY(2, 4)->getID();
+	int oxi = n->getSalaXY(2, 4)->getOxigenio();
+	int vid = n->getSalaXY(2, 4)->getVida();
+	int inte = n->getSalaXY(2, 4)->getIntegridade();
+
+	istringstream x;
+	x >> Nome >> id >> oxi >> vid >> inte;
+
+	c.gotoxy(65, 6);
+	cout << "Nome: " << Nome;
+	c.gotoxy(65, 7);
+	cout << "ID: " << id;
+	c.gotoxy(65, 8);
+	cout << "Oxigenio: " << oxi;
+	c.gotoxy(65, 9);
+	cout << "Vida: " << vid;
+	c.gotoxy(65, 10);
+	cout << "Integridade: " << inte;
+
+}
+
+void PreparaJogo::infoUni(){
 
 }
 

@@ -1,13 +1,13 @@
 #ifndef ROBOT_H
 #define ROBOT_H
 #include "utils.h"
-#include "Tripulacao.h"
+#include "Unidades.h"
 
-class Robot : public Tripulacao{
+class Robot : public Unidades{
 	static int id_robot;
 public:
-	Robot();
-	void mostraUni();
+	Robot(int x, int y);
+	string mostraUnidade();
 	void fazOrdens();
 	void fazFim();
 };

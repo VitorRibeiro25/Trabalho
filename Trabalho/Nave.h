@@ -9,6 +9,7 @@
 using namespace std;
 
 class Nave{
+	int Lin, Col;
 	Sala *salas[LIN][COL];
 public:
 	Nave();
@@ -18,6 +19,9 @@ public:
 	void adicionaSala(Sala *s, int x, int y);
 
 	int getId();
+
+	int getLin();
+	int getCol();
 
 	void adcionaUnidade(Unidades *u, int x, int y);
 
