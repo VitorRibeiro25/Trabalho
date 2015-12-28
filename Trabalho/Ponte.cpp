@@ -1,7 +1,7 @@
 #include "Ponte.h"
 
-Ponte::Ponte() :Sala(){
-	setNome("PON");
+Ponte::Ponte():Sala(){
+	setNome("PONT");
 	setVida(100);
 	setOxigenio(100);
 	setIntegridade(100);

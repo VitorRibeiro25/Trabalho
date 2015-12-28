@@ -62,6 +62,14 @@ void Sala::setID(int id){
 	id_sal = id;
 }
 
+string Sala::mostraNome(){
+	ostringstream os;
+
+	os << getNome();
+
+	return os.str();
+}
+
 string Sala::mostraSala(){
 	ostringstream os;
 

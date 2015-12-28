@@ -1,7 +1,7 @@
 #include "Propulsor.h"
 
 Propulsor::Propulsor() :Sala(){
-	setNome("PRO");
+	setNome("PROP");
 	setVida(100);
 	setOxigenio(100);
 	setIntegridade(100);

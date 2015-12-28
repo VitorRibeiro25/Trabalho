@@ -42,6 +42,7 @@ public:
 	
 	//funcao de mostrar
 	string mostraSala();
+	string mostraNome();
 
 	// faz accoes
 	virtual string mostra();

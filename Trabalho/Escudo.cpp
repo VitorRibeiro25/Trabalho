@@ -1,7 +1,7 @@
 #include "Escudo.h"
 
 Escudo::Escudo():Sala(){
-	setNome("ESC");
+	setNome("ESCU");
 	setVida(100);
 	setOxigenio(100);
 	setIntegridade(100);

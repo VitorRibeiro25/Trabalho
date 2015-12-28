@@ -1,7 +1,7 @@
 #include "SuporteVida.h"
 
 SuporteVida::SuporteVida() :Sala(){
-	setNome("VID");
+	setNome("SVID");
 	setVida(100);
 	setOxigenio(100);
 	setIntegridade(100);

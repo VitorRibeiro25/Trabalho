@@ -23,6 +23,8 @@ void Interface::Comeca(){
 			input = recebeComando();
 			if (start->comandosJogo(input, error) == true)
 				return;
+			// colocar update aqui!!!!!
+			DesenhaNave();
 			ApagaErrorMsg();
 		} while (error = true);
 	}
@@ -93,21 +95,23 @@ void Interface::MenuInterface(){
 
 void Interface::DesenhaNave(){
 	Consola c;
+	int linhas  = 12;
 	c.setTextColor(c.BRANCO);
 	
 	DesenhaLimites();
-	for (int i = 0; i < LIN; i++){
-		for (int j = 0; j < COL; j++){					
-			c.gotoxy(10,12);
+	for (int i = 1; i <= LIN; i++){
+		for (int j = 1; j <= COL; j++){	
+			c.gotoxy(10 + ((j - 1) * 12),linhas);
 			if (start->getNave()->getSalaXY(i, j) == NULL){
 
 				cout << "VAZ ";
 			}
 			else{
 				Sala *s = start->getNave()->getSalaXY(i, j);
-				cout << s->mostraSala() << endl;
+				cout << s->mostraNome() << endl;
 			}
 		}
+		linhas += 4;
 	}
 	
 
@@ -125,7 +129,7 @@ void Interface::DesenhaLimites(){
 		<< (char)196 << (char)196 << (char)196 << (char)196 << (char)196 << (char)196
 		<< (char)196 << (char)196 << (char)196 << (char)196 << (char)196 << (char)196
 		<< (char)196 << (char)196 << (char)196 << (char)196 << (char)196 << (char)196
-		<< (char)191 << '\n';
+		<< (char)191;
 
 	// coluna 1
 	for (int i = 11; i < 22; i++){
@@ -135,7 +139,7 @@ void Interface::DesenhaLimites(){
 	// coluna 2
 	c.gotoxy(17, 10);
 	cout << (char)194;
-	for (int i = 11; i < 22; i++){
+	for (int i = 11; i < 23; i++){
 		c.gotoxy(17, i);
 		cout << (char)179;
 	}
@@ -187,7 +191,7 @@ void Interface::DesenhaLimites(){
 		<< (char)196 << (char)196 << (char)196 << (char)196 << (char)196 << (char)196
 		<< (char)196 << (char)196 << (char)196 << (char)196 << (char)196 << (char)196
 		<< (char)196 << (char)196 << (char)196 << (char)196 << (char)196 << (char)196
-		<< (char)196 << (char)196 << (char)196 << (char)196 << (char)196 << (char)196 << '\n';
+		<< (char)196 << (char)196 << (char)196 << (char)196 << (char)196 << (char)196;
 
 }
 

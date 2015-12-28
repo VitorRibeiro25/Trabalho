@@ -21,6 +21,9 @@ public:
 	// funcao de preparajogo
 	void Prepjogo();
 
+	// funcao Update
+	void AtualizaMapa();
+
 	// funcoes de comandos
 	void erroMsg(string error);
 	bool comandosJogo(string input, bool &erro);

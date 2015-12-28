@@ -4,9 +4,9 @@
 using namespace std;
 
 Nave::Nave(){
-	for (int i = 0; i < LIN; i++){
-		for (int j = 0; j < COL; j++){
-			salas[i][j] = new Sala();
+	for (int i = 1; i <= LIN; i++){
+		for (int j = 1; j <= COL; j++){
+			salas[i][j] = NULL;
 		}
 	}
 }
