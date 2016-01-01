@@ -4,7 +4,6 @@
 #include "Unidades.h"
 
 class Robot : public Unidades{
-	static int id_robot;
 public:
 	Robot(int x, int y);
 	string mostraUnidade();

@@ -10,8 +10,7 @@ class Unidades{
 	string nome;
 	int vida, dano;
 	int lin, col;
-	static int contador;
-	int id_uni;
+	static int id_uni;
 	Sala *ondeEstou;
 	Sala *oxigenio;
 public:

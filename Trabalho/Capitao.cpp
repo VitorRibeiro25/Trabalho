@@ -1,13 +1,8 @@
 #include "Capitao.h"
 
-int Capitao::id_cap = 0;
-
-
 Capitao::Capitao(int x, int y):Unidades(x, y){
 
 	setNome("CAP");
-	id_cap++;
-	setId(id_cap);
 	setVida(100);
 	setDano(100);
 	fazInicio();	

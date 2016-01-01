@@ -1,11 +1,7 @@
 #include "Geigermorfo.h"
 
-int Geigemorfo::id_gei = 0;
-
 Geigemorfo::Geigemorfo(int x, int y):Unidades(x,y){
 	setNome("GEI");
-	id_gei++;
-	setId(id_gei);
 	setVida(100);
 	setDano(100);
 	fazInicio();

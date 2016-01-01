@@ -74,7 +74,6 @@ void PreparaJogo::ajudaUnidades(){
 	cout << "blob - Blob (Criacao da unidade Blob)" << endl;
 	cout << "mxyz - Mxyz (Criacao da unidade Mxyz)" << endl;
 	c.getch();
-	c.clrscr();
 	return;
 }
 
@@ -87,21 +86,11 @@ void PreparaJogo::ajudaAntesJogo(){
 	cout << "sair - sai do programa" << endl << endl;
 	cout << "PRESSIONE QUALQUER TECLA PARA VOLTAR AO MENU";
 	c.getch();
-	c.clrscr();
-
 	return;
 
 }
 
 void PreparaJogo::Prepjogo(){
-	Consola c;
-	c.clrscr();
-	c.gotoxy(5, 10);
-	for (int i = 1; i < LIN; i++){
-		for (int j = 1; j < COL; j++){
-
-		}
-	}
 
 }
 
@@ -215,7 +204,7 @@ bool PreparaJogo::comandosJogo(string input, bool &erro){
 	}
 
 	else if (nomeFuncao == "addxenomorfo"){
-		in >> name;
+		in >> name >> linhas >> colunas;
 		if (name == "gei"){
 			if (n->getSalaXY(linhas, colunas) == NULL){
 				errorMsg("A sala com as Coordenadas indicadas nao exite!");
@@ -254,7 +243,7 @@ bool PreparaJogo::comandosJogo(string input, bool &erro){
 	}
 
 	else if (nomeFuncao == "jogar"){
-
+		comecaNave();
 	}
 
 	else if (nomeFuncao == "ajuda"){
@@ -269,21 +258,27 @@ bool PreparaJogo::comandosJogo(string input, bool &erro){
 	}
 	
 	else if (nomeFuncao == "versala"){
-		in >> name;
+		in >> name >> linhas >> colunas;
 		if (name == "pon"){
-			infoSala();
+			infoSala(linhas,colunas);
 		}
 		else if (name == "svid"){
-			infoSala();
+			infoSala(linhas,colunas);
 		}
 		else if (name == "pro"){
-			infoSala();
+			infoSala(linhas,colunas);
 		}
 		else if (name == "maq"){
-			infoSala();
+			infoSala(linhas,colunas);
 		}
 		else if (name == "esc"){
-			infoSala();
+			infoSala(linhas,colunas);
+		}
+	}
+	else if (nomeFuncao == "veruni"){
+		in >> name >> id;
+		if (name == "tpn"){
+			infoUni(id);
 		}
 	}
 
@@ -330,13 +325,13 @@ void PreparaJogo::comandosMenu(){
 
 }
 
-void PreparaJogo::infoSala(){
+void PreparaJogo::infoSala(int lin, int col){
 	Consola c;
-	string Nome = n->getSalaXY(2, 4)->getNome();
-	int id = n->getSalaXY(2, 4)->getID();
-	int oxi = n->getSalaXY(2, 4)->getOxigenio();
-	int vid = n->getSalaXY(2, 4)->getVida();
-	int inte = n->getSalaXY(2, 4)->getIntegridade();
+	string Nome = n->getSalaXY(lin, col)->getNome();
+	int id = n->getSalaXY(lin, col)->getID();
+	int oxi = n->getSalaXY(lin, col)->getOxigenio();
+	int vid = n->getSalaXY(lin, col)->getVida();
+	int inte = n->getSalaXY(lin, col)->getIntegridade();
 
 	istringstream x;
 	x >> Nome >> id >> oxi >> vid >> inte;
@@ -361,7 +356,37 @@ void PreparaJogo::infoSala(){
 }
 
 
-void PreparaJogo::infoUni(){
+void PreparaJogo::infoUni(int id_uni){
+	Consola c;
+	istringstream x;
+	
+	if (u->getId == id_uni){
+		string nome = u->getNome();
+		int id = u->getId();
+		int vida = u->getVida();
+		int dano = u->getDano();
+		x >> nome >> id >> vida >> dano;	
+		c.gotoxy(65, 6);
+		cout << "Nome: " << nome;
+		c.gotoxy(65, 7);
+		cout << "ID: " << id;
+		c.gotoxy(65, 8);
+		cout << "Vida: " << endl;
+		c.gotoxy(65, 9);
+		cout << vida;
+		c.gotoxy(65, 10);
+		cout << "Dano: " << endl;
+		c.gotoxy(65, 11);
+		cout << dano;
+	}
+
+	else{
+		errorMsg("Nao existe uma Unidade com o ID indicado!");
+	}
+}
+
+
+void PreparaJogo::comecaNave(){
 
 }
 
@@ -381,6 +406,10 @@ int PreparaJogo::getposY(){
 	return posY;
 }
 
+int PreparaJogo::getId(){
+	return id;
+}
+
 void PreparaJogo::setposXY(int x, int y){
 	posX = x;
 	posY = y;
@@ -390,6 +419,9 @@ Nave *PreparaJogo::getNave(){
 	return n;
 }
 
+Unidades *PreparaJogo::getUnidade(){
+	return u;
+}
 void PreparaJogo::setLinhas(int lin){
 	linhas = lin;
 }
@@ -404,5 +436,9 @@ void PreparaJogo::setX(int x){
 
 void PreparaJogo::setY(int y){
 	posY = y;
+}
+
+void PreparaJogo::setId(int ide){
+	id = ide;
 }
 

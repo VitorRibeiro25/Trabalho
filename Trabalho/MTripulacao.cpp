@@ -1,11 +1,7 @@
 #include "MTripulacao.h"
 
-int Mtripulacao::id_mtrip = 0;
-
 Mtripulacao::Mtripulacao(int x, int y):Unidades(x,y){
 	setNome("TRI");
-	id_mtrip++;
-	setId(id_mtrip);
 	setVida(100);
 	setDano(100);
 	fazInicio();	

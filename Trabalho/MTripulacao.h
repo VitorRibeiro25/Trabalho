@@ -5,7 +5,6 @@
 
 
 class Mtripulacao : public Unidades{
-	static int id_mtrip;
 public:
 	Mtripulacao(int x, int y);
 	string mostraUnidade();

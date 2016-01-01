@@ -4,7 +4,6 @@
 #include "Unidades.h"
 
 class Geigemorfo : public Unidades{
-	static int id_gei;
 public:
 	Geigemorfo(int x, int y);
 	string mostraUnidade();

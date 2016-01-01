@@ -3,11 +3,11 @@
 
 using namespace std;
 
-int Unidades::contador = 0;
+int Unidades::id_uni = 0;
 
 Unidades::Unidades(int x, int y){
 	setPos(x, y);
-	id_uni = contador++;
+	id_uni++;
 }
 
 Unidades::~Unidades(){

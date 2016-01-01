@@ -1,11 +1,8 @@
 #include "Mxyzypykwi.h"
 
-int Mxyz::id_mxyz = 0;
 
 Mxyz::Mxyz(int x, int y):Unidades(x,y){
 	setNome("MXYZ");
-	id_mxyz++;
-	setId(id_mxyz);
 	setVida(100);
 	setDano(100);
 	fazInicio();

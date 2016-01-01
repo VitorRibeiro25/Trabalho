@@ -1,11 +1,8 @@
 #include "Blob.h"
 
-int Blob::id_blob = 0;
 
 Blob::Blob(int x, int y):Unidades(x,y){
 	setNome("BLOB");
-	id_blob++;
-	setId(id_blob);
 	setVida(100);
 	setDano(100);
 	fazInicio();

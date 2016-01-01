@@ -1,11 +1,7 @@
 #include "Casulo.h"
 
-int Casulo::id_cas = 0;
-
 Casulo::Casulo(int x, int y):Unidades(x,y){
 	setNome("CAS");
-	id_cas++;
-	setId(id_cas);
 	setVida(100);
 	setDano(100);
 	fazOrdens();

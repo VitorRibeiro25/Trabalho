@@ -8,15 +8,19 @@
 
 
 class PreparaJogo{
-	int linhas, colunas;
+	int linhas, colunas, id;
 	int posX, posY;
 	Nave *n;
+	Unidades *u;
 
 public:
 
 	// construtor e destrutor
 	PreparaJogo();
 	~PreparaJogo();
+
+	// funcoes para comecar a nave a "andar"
+	void comecaNave();
 
 	// funcao de preparajogo
 	void Prepjogo();
@@ -32,13 +36,16 @@ public:
 	//funcoes gets
 	int getLinhas();
 	int getColunas();
+	int getId();
 	int getposX();
 	int getposY();
 	Nave *getNave();
+	Unidades *getUnidade();
 
 	//funcoes sets
 	void setLinhas(int lin);
 	void setColunas(int col);
+	void setId(int ide);
 	void setX(int x);
 	void setY(int y);
 	void setposXY(int x, int y);
@@ -67,8 +74,8 @@ public:
 
 	// funcao de mostrar
 	void mostra();
-	void infoSala();
-	void infoUni();
+	void infoSala(int lin, int col);
+	void infoUni(int id_uni);
 };
 
 

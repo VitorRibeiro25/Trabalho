@@ -5,7 +5,6 @@
 #include "Unidades.h"
 
 class Inimigo : public Unidades{
-	static int id_ini;
 public:
 	Inimigo(int x, int y);
 	string mostraUnidade();

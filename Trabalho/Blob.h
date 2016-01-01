@@ -4,7 +4,6 @@
 #include "Unidades.h"
 
 class Blob : public Unidades{
-	static int id_blob;
 public:
 	Blob(int x, int y);
 	string mostraUnidade();

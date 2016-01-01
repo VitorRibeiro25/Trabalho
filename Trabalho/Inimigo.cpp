@@ -1,13 +1,9 @@
 #include "Inimigo.h"
 
 
-int Inimigo::id_ini = 0;
-
 Inimigo::Inimigo(int x, int y):Unidades(x,y){
 
 	setNome("PIR");
-	id_ini++;
-	setId(id_ini);
 	setVida(100);
 	setDano(100);
 	fazInicio();
