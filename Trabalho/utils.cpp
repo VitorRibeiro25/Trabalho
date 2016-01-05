@@ -1,5 +1,8 @@
 #include "utils.h"
 
+int numero_aleat(int num){
+	return rand() % num + 1;
+}
 
 void init_alea(){
 	srand((unsigned)time(NULL));

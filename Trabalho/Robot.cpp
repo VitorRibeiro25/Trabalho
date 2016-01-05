@@ -14,7 +14,7 @@ Robot::Robot(int x, int y):Unidades(x,y){
 string Robot::mostraUnidade(){
 	ostringstream os;
 
-	os << "Robot com ID " << getId() << "Vida:" << getVida() << endl << "Dano: " << getDano() << endl << "Estou na sala: " << getOndeEstou() << endl;
+	os << "Robot com ID " << getId() << "Vida:" << getVida() << endl << "Dano: " << getDano() << endl;
 
 	return os.str();
 }

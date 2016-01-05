@@ -15,5 +15,6 @@ void main(){
 
 	janela->menu();
 	janela->Comeca();
+	janela->ComecaJogo();
 
 }

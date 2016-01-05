@@ -21,6 +21,7 @@ public:
 
 	void MenuInterface();
 	void ComecaInterface();
+	void ComecaJogo();
 	void ComecaMapaJogo();
 	void mostraColsJogo(int x);
 	void mostraLinsJogo(int y);

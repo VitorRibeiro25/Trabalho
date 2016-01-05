@@ -1,5 +1,6 @@
 #include "utils.h"
 #include "Unidades.h"
+#include <vector>
 
 using namespace std;
 
@@ -8,6 +9,7 @@ int Unidades::id_uni = 0;
 Unidades::Unidades(int x, int y){
 	setPos(x, y);
 	id_uni++;
+	id = id_uni;
 }
 
 Unidades::~Unidades(){
@@ -19,7 +21,7 @@ string Unidades::getNome(){
 }
 
 int Unidades::getId(){
-	return id_uni;
+	return id;
 }
 
 int Unidades::getLin(){
@@ -38,20 +40,20 @@ int Unidades::getDano(){
 	return dano;
 }
 
-Sala *Unidades::getOndeEstou(){
-	return ondeEstou;
+Sala *Unidades::getPonteiroSala(){
+	return this->ondeEstou;
 }
 
 Sala *Unidades::getOxigenio(){
-	return oxigenio;
+	return this->oxigenio;
 }
 
 void Unidades::setNome(string name){
 	nome = name;
 }
 
-void Unidades::setId(int id){
-	id_uni = id;
+void Unidades::setId(int idi){
+	id = idi;
 }
 
 void Unidades::setLin(int x){
@@ -81,6 +83,14 @@ void Unidades::setOndeEstou(Sala *s){
 
 void Unidades::setOxigenio(Sala *s){
 	oxigenio = s;
+}
+
+string Unidades::mostraID(){
+	ostringstream os;
+
+	os << getId();
+
+	return os.str();
 }
 
 string Unidades::mostraUnidade(){
@@ -134,6 +144,10 @@ void Unidades::robotico(){
 }
 
 void Unidades::reparador(int RepararDano){
+	if (getDano() < 100){
+		setDano(RepararDano);
+	}
+	else return;
 }
 
 void Unidades::combatente(int provocaDano){

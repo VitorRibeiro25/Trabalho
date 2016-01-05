@@ -1,25 +1,19 @@
-﻿Build started 29/12/2015 19:03:29.
+﻿Build started 04/01/2016 23:05:34.
      1>Project "C:\Users\vitor\documents\visual studio 2013\Projects\Trabalho\Trabalho\Trabalho.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Blob.cpp Capitao.cpp Casulo.cpp Geigemorfo.cpp Inimigo.cpp Interface.cpp MTripulacao.cpp Mxyzypykwi.cpp Nave.cpp PreparaJogo.cpp Robot.cpp Salas.cpp Unidades.cpp main.cpp
-         Unidades.cpp
-         Robot.cpp
-         PreparaJogo.cpp
-         Mxyzypykwi.cpp
-         MTripulacao.cpp
-         Inimigo.cpp
-         Geigemorfo.cpp
-         Casulo.cpp
-         Capitao.cpp
-         Blob.cpp
-         Generating Code...
-         Skipping... (no relevant changes detected)
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt MTripulacao.cpp Salas.cpp
          Salas.cpp
-         main.cpp
-         Nave.cpp
-         Interface.cpp
+     1>c:\users\vitor\documents\visual studio 2013\projects\trabalho\trabalho\salas.cpp(25): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\vitor\documents\visual studio 2013\projects\trabalho\trabalho\salas.cpp(34): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\vitor\documents\visual studio 2013\projects\trabalho\trabalho\salas.cpp(101): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\vitor\documents\visual studio 2013\projects\trabalho\trabalho\salas.cpp(111): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\vitor\documents\visual studio 2013\projects\trabalho\trabalho\salas.cpp(120): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\vitor\documents\visual studio 2013\projects\trabalho\trabalho\salas.cpp(130): warning C4018: '<' : signed/unsigned mismatch
+         MTripulacao.cpp
+         Generating Code...
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\vitor\documents\visual studio 2013\Projects\Trabalho\Debug\Trabalho.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\vitor\documents\visual studio 2013\Projects\Trabalho\Debug\Trabalho.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\vitor\documents\visual studio 2013\Projects\Trabalho\Debug\Trabalho.lib" /MACHINE:X86 Debug\consola.obj
+         Debug\Beliche.obj
          Debug\Blob.obj
          Debug\Capitao.obj
          Debug\Casulo.obj
@@ -45,4 +39,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:06.93
+Time Elapsed 00:00:02.02

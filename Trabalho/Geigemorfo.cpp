@@ -13,7 +13,7 @@ Geigemorfo::Geigemorfo(int x, int y):Unidades(x,y){
 string Geigemorfo::mostraUnidade(){
 	ostringstream os;
 
-	os << "Geigemorfo com ID " << getId() << "Vida:" << getVida() << endl << "Dano: " << getDano() << endl << "Estou na sala: " << getOndeEstou() << endl;
+	os << "Geigemorfo com ID " << getId() << "Vida:" << getVida() << endl << "Dano: " << getDano() << endl;
 
 	return os.str();
 }

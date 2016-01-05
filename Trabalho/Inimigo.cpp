@@ -13,7 +13,7 @@ Inimigo::Inimigo(int x, int y):Unidades(x,y){
 string Inimigo::mostraUnidade(){
 	ostringstream os;
 
-	os << "Pirata com ID " << getId() << "Vida:" << getVida() << endl << "Dano: " << getDano() << endl << "Estou na sala: " << getOndeEstou() << endl;
+	os << "Pirata com ID " << getId() << "Vida:" << getVida() << endl << "Dano: " << getDano() << endl;
 	
 	return os.str();
 }

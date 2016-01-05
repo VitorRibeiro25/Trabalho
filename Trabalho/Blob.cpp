@@ -13,7 +13,7 @@ Blob::Blob(int x, int y):Unidades(x,y){
 string Blob::mostraUnidade(){
 	ostringstream os;
 
-	os << "Blob com ID " << getId() << "Vida:" << getVida() << endl << "Dano: " << getDano() << endl << "Estou na sala: " << getOndeEstou() << endl;
+	os << "Blob com ID " << getId() << "Vida:" << getVida() << endl << "Dano: " << getDano() << endl;
 
 	return os.str();
 }

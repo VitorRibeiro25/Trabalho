@@ -5,13 +5,16 @@
 #include "Nave.h"
 #include "Salas.h"
 #include "Unidades.h"
+#include "MTripulacao.h"
 
 
 class PreparaJogo{
 	int linhas, colunas, id;
 	int posX, posY;
+	static int turno;
 	Nave *n;
 	Unidades *u;
+	static int milhas;
 
 public:
 
@@ -21,6 +24,9 @@ public:
 
 	// funcoes para comecar a nave a "andar"
 	void comecaNave();
+	void avancaTurno();
+	void moveUni(int id, int x, int y);
+	void acabaJogo();
 
 	// funcao de preparajogo
 	void Prepjogo();
@@ -30,8 +36,8 @@ public:
 
 	// funcoes de comandos
 	void erroMsg(string error);
-	bool comandosJogo(string input, bool &erro);
-	void comandosMenu();
+	bool comandosJogo(string input);
+	bool comandosMenu();
 
 	//funcoes gets
 	int getLinhas();
@@ -54,6 +60,7 @@ public:
 	void ajudaSalas();
 	void ajudaUnidades();
 	void ajudaAntesJogo();
+	bool verificaJogo();
 
 	// funcoes de adicionar salas
 	void addEscudo();
@@ -75,7 +82,7 @@ public:
 	// funcao de mostrar
 	void mostra();
 	void infoSala(int lin, int col);
-	void infoUni(int id_uni);
+	void infoUni(int id, int lin, int col);
 };
 
 

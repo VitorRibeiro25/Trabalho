@@ -7,6 +7,7 @@
 #include "Maquinas.h"
 #include "Propulsor.h"
 #include "SuporteVida.h"
+#include "Beliche.h"
 
 #include "Inimigo.h"
 #include "Blob.h"
@@ -17,10 +18,18 @@
 #include "Mxyzypykwi.h"
 #include "Robot.h"
 
+int PreparaJogo::turno = 0;
+
+int PreparaJogo::milhas = 0;
+
 //aqui tudo se vai passar na criação do jogo
 
 PreparaJogo::PreparaJogo(){
 	n = new Nave();
+}
+
+PreparaJogo::~PreparaJogo(){
+
 }
 
 void errorMsg(string error){
@@ -94,16 +103,14 @@ void PreparaJogo::Prepjogo(){
 
 }
 
-bool PreparaJogo::comandosJogo(string input, bool &erro){
+bool PreparaJogo::comandosJogo(string input){
 	string nomeFuncao, name, name2;
-
-	erro = false;
 
 	istringstream in(input);
 	in >> nomeFuncao;
 
 	if (nomeFuncao == "addsala"){
-		in >> name;
+		in >> name >> linhas >> colunas;
 
 		if (name == "pon"){
 			if (n->getSalaXY(2, 4) != NULL){
@@ -153,10 +160,18 @@ bool PreparaJogo::comandosJogo(string input, bool &erro){
 				errorMsg("A sala 2 do Propulsor ja existe!");
 			}
 			if (n->getSalaXY(1, 1) == NULL){
-				n->adicionaSala(new Propulsor(), 1, 1);
+				n->adicionaSala(new Propulsor(), 1,1);
 			}
 			if (n->getSalaXY(3, 1) == NULL){
 				n->adicionaSala(new Propulsor(), 3, 1);
+			}
+		}
+		
+		else if (name == "bel"){
+			if (n->getSalaXY(linhas, colunas) == NULL)
+				n->adicionaSala(new Beliche(), linhas, colunas);
+			else if (linhas == NULL && colunas == NULL){
+				errorMsg("Linhas e colunas em falta!");
 			}
 		}
 	}
@@ -166,7 +181,10 @@ bool PreparaJogo::comandosJogo(string input, bool &erro){
 
 		if (name == "tpn"){
 			if (n->getSalaXY(linhas, colunas) == NULL){
-				errorMsg("A sala com as Coordenadas indicadas nao exite!");
+				errorMsg("A sala com as Coordenadas indicadas nao existe!");
+			}
+			else if (linhas == NULL && colunas == NULL){
+				errorMsg("Linhas e colunas em falta!");
 			}
 			else{
 				n->adcionaUnidade(new Mtripulacao(linhas,colunas), linhas, colunas);
@@ -174,7 +192,10 @@ bool PreparaJogo::comandosJogo(string input, bool &erro){
 		}
 		else if (name == "cap"){
 			if (n->getSalaXY(linhas, colunas) == NULL){
-				errorMsg("A sala com as Coordenadas indicadas nao exite!");
+				errorMsg("A sala com as Coordenadas indicadas nao existe!");
+			}
+			else if (linhas == NULL && colunas == NULL){
+				errorMsg("Linhas e colunas em falta!");
 			}
 			else{
 				n->adcionaUnidade(new Capitao(linhas, colunas), linhas, colunas);
@@ -182,20 +203,25 @@ bool PreparaJogo::comandosJogo(string input, bool &erro){
 		}
 		else if (name == "rob"){
 			if (n->getSalaXY(linhas, colunas) == NULL){
-				errorMsg("A sala com as Coordenadas indicadas nao exite!");
+				errorMsg("A sala com as Coordenadas indicadas nao existe!");
+			}
+			else if (linhas == NULL && colunas == NULL){
+				errorMsg("Linhas e colunas em falta!");
 			}
 			else{
 				n->adcionaUnidade(new Robot(linhas, colunas), linhas, colunas);
 			}
 		}
-
 	}
 
 	else if (nomeFuncao == "addinimigo"){
 		in >> name >> linhas >> colunas;
 		if (name == "pir"){
 			if (n->getSalaXY(linhas, colunas) == NULL){
-				errorMsg("A sala com as Coordenadas indicadas nao exite!");
+				errorMsg("A sala com as Coordenadas indicadas nao existe!");
+			}
+			else if (linhas == NULL && colunas == NULL){
+				errorMsg("Linhas e colunas em falta!");
 			}
 			else{
 				n->adcionaUnidade(new Inimigo(linhas, colunas), linhas, colunas);
@@ -207,7 +233,10 @@ bool PreparaJogo::comandosJogo(string input, bool &erro){
 		in >> name >> linhas >> colunas;
 		if (name == "gei"){
 			if (n->getSalaXY(linhas, colunas) == NULL){
-				errorMsg("A sala com as Coordenadas indicadas nao exite!");
+				errorMsg("A sala com as Coordenadas indicadas nao existe!");
+			}
+			else if (linhas == NULL && colunas == NULL){
+				errorMsg("Linhas e colunas em falta!");
 			}
 			else{
 				n->adcionaUnidade(new Geigemorfo(linhas, colunas), linhas, colunas);
@@ -216,7 +245,10 @@ bool PreparaJogo::comandosJogo(string input, bool &erro){
 
 		else if (name == "cas"){
 			if (n->getSalaXY(linhas, colunas) == NULL){
-				errorMsg("A sala com as Coordenadas indicadas nao exite!");
+				errorMsg("A sala com as Coordenadas indicadas nao existe!");
+			}
+			else if (linhas == NULL && colunas == NULL){
+				errorMsg("Linhas e colunas em falta!");
 			}
 			else{
 				n->adcionaUnidade(new Casulo(linhas, colunas), linhas, colunas);
@@ -225,7 +257,10 @@ bool PreparaJogo::comandosJogo(string input, bool &erro){
 		}
 		else if (name == "blob"){
 			if (n->getSalaXY(linhas, colunas) == NULL){
-				errorMsg("A sala com as Coordenadas indicadas nao exite!");
+				errorMsg("A sala com as Coordenadas indicadas nao existe!");
+			}
+			else if (linhas == NULL && colunas == NULL){
+				errorMsg("Linhas e colunas em falta!");
 			}
 			else{
 				n->adcionaUnidade(new Blob(linhas, colunas), linhas, colunas);
@@ -234,7 +269,10 @@ bool PreparaJogo::comandosJogo(string input, bool &erro){
 		}
 		else if (name == "mxyz"){
 			if (n->getSalaXY(linhas, colunas) == NULL){
-				errorMsg("A sala com as Coordenadas indicadas nao exite!");
+				errorMsg("A sala com as Coordenadas indicadas nao existe!");
+			}
+			else if (linhas == NULL && colunas == NULL){
+				errorMsg("Linhas e colunas em falta!");
 			}
 			else{
 				n->adcionaUnidade(new Mxyz(linhas, colunas), linhas, colunas);
@@ -243,7 +281,10 @@ bool PreparaJogo::comandosJogo(string input, bool &erro){
 	}
 
 	else if (nomeFuncao == "jogar"){
-		comecaNave();
+		if (verificaJogo() == false){
+			return false;
+		}
+		else return true;
 	}
 
 	else if (nomeFuncao == "ajuda"){
@@ -256,10 +297,24 @@ bool PreparaJogo::comandosJogo(string input, bool &erro){
 		}
 
 	}
+
+	else if (nomeFuncao == "move"){
+		in >> id >> linhas >> colunas;
+
+		n->moveUni(id, linhas, colunas);
+
+	}
+
+	else if (nomeFuncao == "avanca"){
+		avancaTurno();
+	}
 	
 	else if (nomeFuncao == "versala"){
 		in >> name >> linhas >> colunas;
-		if (name == "pon"){
+		if (linhas == NULL || colunas == NULL){
+			errorMsg("Linhas e Colunas em falta!");
+		}
+		else if (name == "pon"){
 			infoSala(linhas,colunas);
 		}
 		else if (name == "svid"){
@@ -274,11 +329,15 @@ bool PreparaJogo::comandosJogo(string input, bool &erro){
 		else if (name == "esc"){
 			infoSala(linhas,colunas);
 		}
+		else if (name == "bel"){
+			infoSala(linhas, colunas);
+		}
 	}
+
 	else if (nomeFuncao == "veruni"){
-		in >> name >> id;
+		in >> name >> id >> linhas >> colunas;
 		if (name == "tpn"){
-			infoUni(id);
+			infoUni(id, linhas, colunas);
 		}
 	}
 
@@ -287,7 +346,6 @@ bool PreparaJogo::comandosJogo(string input, bool &erro){
 	}
 
 	else {
-		erro = true;
 		errorMsg("Comando Incorreto! por favor introduza outro!");
 	}
 
@@ -295,8 +353,13 @@ bool PreparaJogo::comandosJogo(string input, bool &erro){
 	return false;
 }
 
+void PreparaJogo::avancaTurno(){
+	
+	milhas = milhas + 1000;
+	
+}
 
-void PreparaJogo::comandosMenu(){
+bool PreparaJogo::comandosMenu(){
 	Consola c;
 	string input, nomefunc;
 	
@@ -312,7 +375,7 @@ void PreparaJogo::comandosMenu(){
 		}
 		else if (nomefunc == "jogar"){
 			Prepjogo();
-			return;
+			return true;
 		}
 		else if (nomefunc == "ajuda"){
 			ajudaAntesJogo();
@@ -327,68 +390,71 @@ void PreparaJogo::comandosMenu(){
 
 void PreparaJogo::infoSala(int lin, int col){
 	Consola c;
-	string Nome = n->getSalaXY(lin, col)->getNome();
-	int id = n->getSalaXY(lin, col)->getID();
-	int oxi = n->getSalaXY(lin, col)->getOxigenio();
-	int vid = n->getSalaXY(lin, col)->getVida();
-	int inte = n->getSalaXY(lin, col)->getIntegridade();
-
-	istringstream x;
-	x >> Nome >> id >> oxi >> vid >> inte;
-
-	c.gotoxy(65, 6);
-	cout << "Nome: " << Nome;
-	c.gotoxy(65, 7);
-	cout << "ID: " << id;
-	c.gotoxy(65,8);
-	cout << "Oxigenio: " << endl;
-	c.gotoxy(65, 9);
-	cout << oxi;
-	c.gotoxy(65, 10);
-	cout << "Vida: " << endl;
-	c.gotoxy(65, 11);
-	cout << vid;
-	c.gotoxy(65, 12);
-	cout << "Integridade: " << endl;
-	c.gotoxy(65, 13);
-	cout << inte;
+	string info = n->getSalaXY(lin, col)->mostraSala();
+	c.gotoxy(0, 0);
+	cout << info;
 
 }
 
 
-void PreparaJogo::infoUni(int id_uni){
+void PreparaJogo::infoUni(int id, int lin, int col){
 	Consola c;
-	istringstream x;
-	
-	if (u->getId == id_uni){
-		string nome = u->getNome();
-		int id = u->getId();
-		int vida = u->getVida();
-		int dano = u->getDano();
-		x >> nome >> id >> vida >> dano;	
-		c.gotoxy(65, 6);
-		cout << "Nome: " << nome;
-		c.gotoxy(65, 7);
-		cout << "ID: " << id;
-		c.gotoxy(65, 8);
-		cout << "Vida: " << endl;
-		c.gotoxy(65, 9);
-		cout << vida;
-		c.gotoxy(65, 10);
-		cout << "Dano: " << endl;
-		c.gotoxy(65, 11);
-		cout << dano;
-	}
+	string info = n->getSalaXY(lin, col)->mostraUnidade(id);
+	c.gotoxy(0, 0);
+	cout << info;
 
-	else{
-		errorMsg("Nao existe uma Unidade com o ID indicado!");
+}
+
+void PreparaJogo::moveUni(int id, int x, int y){
+	if (n->checkUnidadeXYID(id, x, y) == false){
+		errorMsg("Nao existe uma unidade com o id indicado!");
 	}
 }
 
+bool PreparaJogo::verificaJogo(){
+	if (n->getSalaXY(2, 4) == NULL){
+		errorMsg("O jogo nao pode comecar pois a sala Ponte nao esta criada!");
+		return false;
+	}
+	else if (n->checkUnidadeXY("TRI", 2, 4) == false){
+		errorMsg("Nao existe nenhuma unidade para pilotar a nave!");
+		return false;
+	}
+	else if (n->getSalaXY(2, 1) == NULL){
+		errorMsg("O jogo nao pode comecar porque a sala das Maquinas nao existe!");
+		return false;
+	}
+	else if (n->getSalaXY(1, 1) == NULL || n->getSalaXY(3, 1) == NULL){
+		errorMsg("O jogo nao pode comecar porque a nave nao tem propulsores!");
+		return false;
+	}
+	else return true;
+}
 
 void PreparaJogo::comecaNave(){
+	Consola c;
+	int meta_milhas = 4000;
+	comandosJogo(recebeComando());
+	milhas += 250;
+	turno++;
+	if (turno == 1){
+		n->PosCosmico(turno);
+	}
+	if (meta_milhas < milhas){
+		acabaJogo();
+	}
 
 }
+
+void PreparaJogo::acabaJogo(){
+	Consola c;
+	c.clrscr();
+	cout << "PARABENS!!!!" << endl;
+	cout << "Voce ganhou o jogo!" << endl;
+	cout << "Conseguiu chegar ao destino!" << endl;
+	exit(0);
+}
+
 
 int PreparaJogo::getLinhas(){
 	return linhas;

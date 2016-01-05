@@ -12,7 +12,7 @@ Casulo::Casulo(int x, int y):Unidades(x,y){
 string Casulo::mostraUnidade(){
 	ostringstream os;
 
-	os << "Casulo com ID " << getId() << "Vida:" << getVida() << endl << "Dano: " << getDano() << endl << "Estou na sala: " << getOndeEstou() << endl;
+	os << "Casulo com ID " << getId() << "Vida:" << getVida() << endl << "Dano: " << getDano() << endl;
 
 	return os.str();
 }

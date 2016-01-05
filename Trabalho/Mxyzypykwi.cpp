@@ -13,7 +13,7 @@ Mxyz::Mxyz(int x, int y):Unidades(x,y){
 string Mxyz::mostraUnidade(){
 	ostringstream os;
 
-	os << "MXYZ com ID " << getId() << "Vida:" << getVida() << endl << "Dano: " << getDano() << endl << "Estou na sala: " << getOndeEstou() << endl;
+	os << "MXYZ com ID " << getId() << "Vida:" << getVida() << endl << "Dano: " << getDano() << endl;
 
 	return os.str();
 }

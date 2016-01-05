@@ -16,7 +16,7 @@ Capitao::Capitao(int x, int y):Unidades(x, y){
 string Capitao::mostraUnidade(){
 	ostringstream os;
 
-	os << "Capitao com ID " << getId() << "Vida:" << getVida() << endl << "Dano: " << getDano() << endl << "Estou na sala: " << getOndeEstou() << endl;
+	os << "Capitao" << endl << "com ID: " << getId() << endl << "Vida:" << getVida() << endl << "Dano: " << getDano() << endl;
 
 	return os.str();
 }

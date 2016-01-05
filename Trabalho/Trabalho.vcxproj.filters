@@ -126,6 +126,9 @@
     <ClCompile Include="Interface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Beliche.cpp">
+      <Filter>Source Files\Salas\Opcionais</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PreparaJogo.h">
@@ -187,6 +190,9 @@
     </ClInclude>
     <ClInclude Include="Interface.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Beliche.h">
+      <Filter>Header Files\Salas\Opcionais</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

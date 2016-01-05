@@ -8,8 +8,8 @@ Interface::Interface(){
 void Interface::menu(){
 	while (true){
 		MenuInterface();
-		start->comandosMenu();
-		Comeca();
+		if (start->comandosMenu() == true)
+			return;
 	}
 }
 
@@ -19,16 +19,24 @@ void Interface::Comeca(){
 	ComecaInterface();
 	while (true){
 		DesenhaNave();
-		do{
-			input = recebeComando();
-			if (start->comandosJogo(input, error) == true)
-				return;
-			// colocar update aqui!!!!!
-			DesenhaNave();
-			ApagaErrorMsg();
-		} while (error = true);
+		
+		input = recebeComando();
+		if (start->comandosJogo(input) == true)
+			return;
+		ApagaErrorMsg();
+		DesenhaNave();
 	}
 
+}
+
+void Interface::ComecaJogo(){
+
+	while (true){
+
+		start->comecaNave();
+		ApagaErrorMsg();
+		DesenhaNave();
+	}
 }
 
 
@@ -97,7 +105,7 @@ void Interface::DesenhaNave(){
 	Consola c;
 	int linhas  = 12;
 	c.setTextColor(c.BRANCO);
-	
+		
 	DesenhaLimites();
 	for (int i = 1; i <= LIN; i++){
 		for (int j = 1; j <= COL; j++){	
@@ -109,7 +117,14 @@ void Interface::DesenhaNave(){
 			else{
 				Sala *s = start->getNave()->getSalaXY(i, j);
 				cout << s->mostraNome() << endl;
+				for (int l = 1; l <= LIN; l++){
+					for (int m = 1; m <= COL; m++){
+						c.gotoxy(7 + ((j - 1) * 12), linhas - 1);
+						cout << s->mostraUniID() << endl;
+					}
+				}
 			}
+			
 		}
 		linhas += 4;
 	}

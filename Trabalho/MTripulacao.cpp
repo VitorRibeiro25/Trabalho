@@ -10,9 +10,12 @@ Mtripulacao::Mtripulacao(int x, int y):Unidades(x,y){
 }
 
 string Mtripulacao::mostraUnidade(){
+	Consola c;
 	ostringstream os;
-
-	os << "Tripulante com ID " << getId() << "Vida:" << getVida() << endl << "Dano: " << getDano() << endl << "Estou na sala: " << getOndeEstou() << endl;
+	os << "Tripulante " << endl;
+	os << " com ID: " << getId();
+	os << " Vida:" << getVida();
+	os << " Dano: " << getDano();
 
 	return os.str();
 }

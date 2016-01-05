@@ -10,6 +10,7 @@ class Unidades{
 	string nome;
 	int vida, dano;
 	int lin, col;
+	int id;
 	static int id_uni;
 	Sala *ondeEstou;
 	Sala *oxigenio;
@@ -25,12 +26,12 @@ public:
 	int getLin();
 	int getCol();
 	int getDano();
-	Sala *getOndeEstou();
+	Sala *getPonteiroSala();
 	Sala *getOxigenio();
 
 	//funcao sets
 	void setNome(string name);
-	void setId(int id);
+	void setId(int idi);
 	void setVida(int vid);
 	void setDano(int dan);
 	void setLin(int x);
@@ -41,6 +42,7 @@ public:
 
 	// funcao de mostrar
 	virtual string mostraUnidade();
+	string mostraID();
 
 	// carateristicas para as unidades
 	// prob - probablilidade

@@ -18,20 +18,36 @@ public:
 
 	void adicionaSala(Sala *s, int x, int y);
 
+	bool salaAdjacenteEsquerda(int x, int y);
+	bool salaAdjacenteBaixo(int x, int y);
+	bool salaAdjacenteCima(int x, int y);
+	bool salaAdjacenteDireita(int x, int y);
+
 	int getId();
 
 	int getLin();
 	int getCol();
 
 	void adcionaUnidade(Unidades *u, int x, int y);
+	void percorreSala(int id, int x, int y);
 
 	Sala *getSalaXY(int x, int y);
+
+	bool checkUnidadeXY(string name, int x, int y);
+	bool checkUnidadeXYID(int sid, int x, int y);
+
 
 	void setId(int i);
 
 	string mostraNave();
 
-	
+	void moveUni(int id, int x, int y);
+	// eventos 
+
+	void executaInicio();
+	void executaOrdens();
+	void executaFim();
+	void PosCosmico(int tur);
 
 };
 

@@ -79,6 +79,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\..\..\ISEC\3º ano\POO\consola.cpp" />
+    <ClCompile Include="Beliche.cpp" />
     <ClCompile Include="Blob.cpp" />
     <ClCompile Include="Capitao.cpp" />
     <ClCompile Include="Casulo.cpp" />
@@ -102,6 +103,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\..\..\ISEC\3º ano\POO\consola.h" />
+    <ClInclude Include="Beliche.h" />
     <ClInclude Include="Blob.h" />
     <ClInclude Include="Capitao.h" />
     <ClInclude Include="Casulo.h" />
