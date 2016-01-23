@@ -1,11 +1,9 @@
 #include "Casulo.h"
 
-Casulo::Casulo(int x, int y):Unidades(x,y){
+Casulo::Casulo(int x, int y, Sala *s):Unidades(x,y,s){
 	setNome("CAS");
-	setVida(100);
+	setVida(6);
 	setDano(100);
-	fazOrdens();
-	fazFim();
 
 }
 
@@ -15,12 +13,4 @@ string Casulo::mostraUnidade(){
 	os << "Casulo com ID " << getId() << "Vida:" << getVida() << endl << "Dano: " << getDano() << endl;
 
 	return os.str();
-}
-
-void Casulo::fazOrdens(){
-	exoesqueleto(1);
-}
-
-void Casulo::fazFim(){
-	xenomorfo(0);
 }

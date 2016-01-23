@@ -5,11 +5,8 @@
 
 class Mxyz : public Unidades{
 public:
-	Mxyz(int x, int y);
+	Mxyz(int x, int y, Sala *s);
 	string mostraUnidade();
-	void fazInicio();
-	void fazOrdens();
-	void fazFim();
 };
 
 #endif

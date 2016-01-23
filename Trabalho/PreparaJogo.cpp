@@ -8,6 +8,14 @@
 #include "Propulsor.h"
 #include "SuporteVida.h"
 #include "Beliche.h"
+#include "Armas.h"
+#include "AutoReparador.h"
+#include "Enfermaria.h"
+#include "Oficina.h"
+#include "Propulsor_adi.h"
+#include "Raio.h"
+#include "SCapitao.h"
+#include "SistemaSeg.h"
 
 #include "Inimigo.h"
 #include "Blob.h"
@@ -21,6 +29,8 @@
 int PreparaJogo::turno = 0;
 
 int PreparaJogo::milhas = 0;
+
+int PreparaJogo::jogadas = 0;
 
 //aqui tudo se vai passar na criação do jogo
 
@@ -103,15 +113,12 @@ void PreparaJogo::Prepjogo(){
 
 }
 
-bool PreparaJogo::comandosJogo(string input){
+int PreparaJogo::comandosJogo(string input){
 	string nomeFuncao, name, name2;
-
 	istringstream in(input);
 	in >> nomeFuncao;
-
 	if (nomeFuncao == "addsala"){
-		in >> name >> linhas >> colunas;
-
+		in >> name;
 		if (name == "pon"){
 			if (n->getSalaXY(2, 4) != NULL){
 				errorMsg("A sala Ponte ja existe!");
@@ -153,25 +160,184 @@ bool PreparaJogo::comandosJogo(string input){
 		}
 
 		else if (name == "pro"){
-			if (n->getSalaXY(1, 1) != NULL){
+			in >> i_pro;
+			if (i_pro == 1){			
+				if (n->getSalaXY(1, 1) != NULL){
 				errorMsg("A sala 1 do Propulsor ja existe!");
+				}
+				if (n->getSalaXY(1, 1) == NULL){
+					n->adicionaSala(new Propulsor(), 1, 1);
+				}
 			}
-			if (n->getSalaXY(3, 1) != NULL){
-				errorMsg("A sala 2 do Propulsor ja existe!");
+			else if (i_pro == 2){			
+				if (n->getSalaXY(3, 1) != NULL){
+					errorMsg("A sala 2 do Propulsor ja existe!");
+				}
+				if (n->getSalaXY(3, 1) == NULL){
+					n->adicionaSala(new Propulsor(), 3, 1);
+				}
 			}
-			if (n->getSalaXY(1, 1) == NULL){
-				n->adicionaSala(new Propulsor(), 1,1);
-			}
-			if (n->getSalaXY(3, 1) == NULL){
-				n->adicionaSala(new Propulsor(), 3, 1);
+			else if (i_pro < 1 || i_pro > 2){
+				errorMsg("Apenas existem os propulsores 1 ou 2!");
 			}
 		}
-		
 		else if (name == "bel"){
-			if (n->getSalaXY(linhas, colunas) == NULL)
-				n->adicionaSala(new Beliche(), linhas, colunas);
+			in >> linhas >> colunas;
+			if (linhas < 1 || linhas > 3){
+				errorMsg("Linhas com valor fora do limite <1-3>!");
+			}
+			else if (colunas < 1 || colunas > 4){
+				errorMsg("Colunas com valor fora do limite <1-4>");
+			}
 			else if (linhas == NULL && colunas == NULL){
 				errorMsg("Linhas e colunas em falta!");
+			}
+			else if (n->getSalaXY(linhas, colunas) == NULL){
+				n->adicionaSala(new Beliche(), linhas, colunas);
+			}
+		}
+		else if (name == "arm"){
+			in >> linhas >> colunas;
+			if (linhas < 1 || linhas > 3){
+				errorMsg("Linhas com valor fora do limite <1-3>!");
+			}
+			else if (colunas < 1 || colunas > 4){
+				errorMsg("Colunas com valor fora do limite <1-4>");
+			}
+			else if (linhas == NULL && colunas == NULL){
+				errorMsg("Linhas e colunas em falta!");
+			}
+			else if (n->getSalaXY(linhas, colunas) != NULL){
+				errorMsg("Ja existe uma Sala na posicao indicada!");
+			}
+			else if (n->getSalaXY(linhas, colunas) == NULL){
+				n->adicionaSala(new Arma(), linhas, colunas);
+			}
+		}
+		else if (name == "arep"){
+			in >> linhas >> colunas;
+			if (linhas < 1 || linhas > 3){
+				errorMsg("Linhas com valor fora do limite <1-3>!");
+			}
+			else if (colunas < 1 || colunas > 4){
+				errorMsg("Colunas com valor fora do limite <1-4>");
+			}
+			else if (linhas == NULL && colunas == NULL){
+				errorMsg("Linhas e colunas em falta!");
+			}
+			else if (n->getSalaXY(linhas, colunas) != NULL){
+				errorMsg("Ja existe uma Sala na posicao indicada!");
+			}
+			else if (n->getSalaXY(linhas, colunas) == NULL){
+				n->adicionaSala(new AutoReparador(), linhas, colunas);
+			}
+		}
+		else if (name == "enf"){
+			in >> linhas >> colunas;
+			if (linhas < 1 || linhas > 3){
+				errorMsg("Linhas com valor fora do limite <1-3>!");
+			}
+			else if (colunas < 1 || colunas > 4){
+				errorMsg("Colunas com valor fora do limite <1-4>");
+			}
+			else if (linhas == NULL && colunas == NULL){
+				errorMsg("Linhas e colunas em falta!");
+			}
+			else if (n->getSalaXY(linhas, colunas) != NULL){
+				errorMsg("Ja existe uma Sala na posicao indicada!");
+			}
+			else if (n->getSalaXY(linhas, colunas) == NULL){
+				n->adicionaSala(new Enfermaria(), linhas, colunas);
+			}
+		}
+		else if (name == "ofic"){
+			in >> linhas >> colunas;
+			if (linhas < 1 || linhas > 3){
+				errorMsg("Linhas com valor fora do limite <1-3>!");
+			}
+			else if (colunas < 1 || colunas > 4){
+				errorMsg("Colunas com valor fora do limite <1-4>");
+			}
+			else if (linhas == NULL && colunas == NULL){
+				errorMsg("Linhas e colunas em falta!");
+			}
+			else if (n->getSalaXY(linhas, colunas) != NULL){
+				errorMsg("Ja existe uma Sala na posicao indicada!");
+			}
+			else if (n->getSalaXY(linhas, colunas) == NULL){
+				n->adicionaSala(new Oficina(), linhas, colunas);
+			}
+		}
+		else if (name == "proa"){
+			in >> linhas >> colunas;
+			if (linhas < 1 || linhas > 3){
+				errorMsg("Linhas com valor fora do limite <1-3>!");
+			}
+			else if (colunas < 1 || colunas > 4){
+				errorMsg("Colunas com valor fora do limite <1-4>");
+			}
+			else if (linhas == NULL && colunas == NULL){
+				errorMsg("Linhas e colunas em falta!");
+			}
+			else if (n->getSalaXY(linhas, colunas) != NULL){
+				errorMsg("Ja existe uma Sala na posicao indicada!");
+			}
+			else if (n->getSalaXY(linhas, colunas) == NULL){
+				n->adicionaSala(new PropulsorAdi(), linhas, colunas);
+			}
+		}
+		else if (name == "rai"){
+			in >> linhas >> colunas;
+			if (linhas < 1 || linhas > 3){
+				errorMsg("Linhas com valor fora do limite <1-3>!");
+			}
+			else if (colunas < 1 || colunas > 4){
+				errorMsg("Colunas com valor fora do limite <1-4>");
+			}
+			else if (linhas == NULL && colunas == NULL){
+				errorMsg("Linhas e colunas em falta!");
+			}
+			else if (n->getSalaXY(linhas, colunas) != NULL){
+				errorMsg("Ja existe uma Sala na posicao indicada!");
+			}
+			else if (n->getSalaXY(linhas, colunas) == NULL){
+				n->adicionaSala(new Raio(), linhas, colunas);
+			}
+		}
+		else if (name == "scap"){
+			in >> linhas >> colunas;
+			if (linhas < 1 || linhas > 3){
+				errorMsg("Linhas com valor fora do limite <1-3>!");
+			}
+			else if (colunas < 1 || colunas > 4){
+				errorMsg("Colunas com valor fora do limite <1-4>");
+			}
+			else if (linhas == NULL && colunas == NULL){
+				errorMsg("Linhas e colunas em falta!");
+			}
+			else if (n->getSalaXY(linhas, colunas) != NULL){
+				errorMsg("Ja existe uma Sala na posicao indicada!");
+			}
+			else if (n->getSalaXY(linhas, colunas) == NULL){
+				n->adicionaSala(new SCapitao(), linhas, colunas);
+			}
+		}
+		else if (name == "sseg"){
+			in >> linhas >> colunas;
+			if (linhas < 1 || linhas > 3){
+				errorMsg("Linhas com valor fora do limite <1-3>!");
+			}
+			else if (colunas < 1 || colunas > 4){
+				errorMsg("Colunas com valor fora do limite <1-4>");
+			}
+			else if (linhas == NULL && colunas == NULL){
+				errorMsg("Linhas e colunas em falta!");
+			}
+			else if (n->getSalaXY(linhas, colunas) != NULL){
+				errorMsg("Ja existe uma Sala na posicao indicada!");
+			}
+			else if (n->getSalaXY(linhas, colunas) == NULL){
+				n->adicionaSala(new SistemaSeg(), linhas, colunas);
 			}
 		}
 	}
@@ -187,7 +353,7 @@ bool PreparaJogo::comandosJogo(string input){
 				errorMsg("Linhas e colunas em falta!");
 			}
 			else{
-				n->adcionaUnidade(new Mtripulacao(linhas,colunas), linhas, colunas);
+				n->adcionaUnidade(new Mtripulacao(linhas,colunas, n->getSalaXY(linhas, colunas)), linhas, colunas);
 			}
 		}
 		else if (name == "cap"){
@@ -198,7 +364,7 @@ bool PreparaJogo::comandosJogo(string input){
 				errorMsg("Linhas e colunas em falta!");
 			}
 			else{
-				n->adcionaUnidade(new Capitao(linhas, colunas), linhas, colunas);
+				n->adcionaUnidade(new Capitao(linhas, colunas, n->getSalaXY(linhas,colunas)), linhas, colunas);
 			}
 		}
 		else if (name == "rob"){
@@ -209,7 +375,7 @@ bool PreparaJogo::comandosJogo(string input){
 				errorMsg("Linhas e colunas em falta!");
 			}
 			else{
-				n->adcionaUnidade(new Robot(linhas, colunas), linhas, colunas);
+				n->adcionaUnidade(new Robot(linhas, colunas, n->getSalaXY(linhas,colunas)), linhas, colunas);
 			}
 		}
 	}
@@ -224,7 +390,7 @@ bool PreparaJogo::comandosJogo(string input){
 				errorMsg("Linhas e colunas em falta!");
 			}
 			else{
-				n->adcionaUnidade(new Inimigo(linhas, colunas), linhas, colunas);
+				n->adcionaUnidade(new Inimigo(linhas, colunas, n->getSalaXY(linhas,colunas)), linhas, colunas);
 			}
 		}
 	}
@@ -239,7 +405,7 @@ bool PreparaJogo::comandosJogo(string input){
 				errorMsg("Linhas e colunas em falta!");
 			}
 			else{
-				n->adcionaUnidade(new Geigemorfo(linhas, colunas), linhas, colunas);
+				n->adcionaUnidade(new Geigemorfo(linhas, colunas, n->getSalaXY(linhas,colunas)), linhas, colunas);
 			}
 		}
 
@@ -251,7 +417,7 @@ bool PreparaJogo::comandosJogo(string input){
 				errorMsg("Linhas e colunas em falta!");
 			}
 			else{
-				n->adcionaUnidade(new Casulo(linhas, colunas), linhas, colunas);
+				n->adcionaUnidade(new Casulo(linhas, colunas, n->getSalaXY(linhas,colunas)), linhas, colunas);
 			}
 
 		}
@@ -263,7 +429,7 @@ bool PreparaJogo::comandosJogo(string input){
 				errorMsg("Linhas e colunas em falta!");
 			}
 			else{
-				n->adcionaUnidade(new Blob(linhas, colunas), linhas, colunas);
+				n->adcionaUnidade(new Blob(linhas, colunas, n->getSalaXY(linhas,colunas)), linhas, colunas);
 			}
 
 		}
@@ -275,16 +441,13 @@ bool PreparaJogo::comandosJogo(string input){
 				errorMsg("Linhas e colunas em falta!");
 			}
 			else{
-				n->adcionaUnidade(new Mxyz(linhas, colunas), linhas, colunas);
+				n->adcionaUnidade(new Mxyz(linhas, colunas, n->getSalaXY(linhas,colunas)), linhas, colunas);
 			}
 		}
 	}
 
 	else if (nomeFuncao == "jogar"){
-		if (verificaJogo() == false){
-			return false;
-		}
-		else return true;
+		return verificaJogo();
 	}
 
 	else if (nomeFuncao == "ajuda"){
@@ -327,30 +490,61 @@ bool PreparaJogo::comandosJogo(string input){
 			infoSala(linhas,colunas);
 		}
 		else if (name == "esc"){
-			infoSala(linhas,colunas);
+			infoSalaEscudo(linhas,colunas);
 		}
 		else if (name == "bel"){
+			infoSala(linhas, colunas);
+		}
+		else if (name == "arm"){
+			infoSala(linhas, colunas);
+		}
+		else if (name == "arep"){
+			infoSala(linhas, colunas);
+		}
+		else if (name == "ofic"){
+			infoSala(linhas, colunas);
+		}
+		else if (name == "proa"){
+			infoSala(linhas, colunas);
+		}
+		else if (name == "rai"){
+			infoSala(linhas, colunas);
+		}
+		else if (name == "scap"){
+			infoSala(linhas, colunas);
+		}
+		else if (name == "sseg"){
 			infoSala(linhas, colunas);
 		}
 	}
 
 	else if (nomeFuncao == "veruni"){
-		in >> name >> id >> linhas >> colunas;
-		if (name == "tpn"){
-			infoUni(id, linhas, colunas);
+		in >> id >> linhas >> colunas;
+		if (n->checkUnidadeXYID(id, linhas, colunas) == false){
+			errorMsg("O id indicado nao existe na sala indicada!");
 		}
+		else if (n->getSalaXY(linhas, colunas) == NULL){
+			errorMsg("Nao existe nenhuma nas coordenadas indicadas!");
+		}
+		else infoUni(id, linhas, colunas);
+
 	}
 
-	else if (nomeFuncao == "sair"){
-		exit(0);
+	else if (nomeFuncao == "gerjogo"){
+		geraJogo();
+	}
+
+	else if (nomeFuncao == "voltar"){
+		return 3;
 	}
 
 	else {
 		errorMsg("Comando Incorreto! por favor introduza outro!");
+		return 0;
 	}
 
 	ApagaErrorMsg();
-	return false;
+	return 1;
 }
 
 void PreparaJogo::avancaTurno(){
@@ -388,19 +582,49 @@ bool PreparaJogo::comandosMenu(){
 
 }
 
+void PreparaJogo::geraJogo(){
+	if (n->getSalaXY(2, 4) == NULL){
+		n->adicionaSala(new Ponte(), 2, 4);
+	}
+	if (n->getSalaXY(2, 4) != NULL){
+		n->adcionaUnidade(new Mtripulacao(2, 4, n->getSalaXY(2, 4)), 2, 4);
+	}
+	if (n->getSalaXY(1,1) == NULL){
+		n->adicionaSala(new Propulsor(), 1, 1);
+	}
+	if (n->getSalaXY(2, 1) == NULL){
+		n->adicionaSala(new Maquinas(), 2, 1);
+	}
+	if (n->getSalaXY(3, 1) == NULL){
+		n->adicionaSala(new Propulsor(), 3, 1);
+	}
+	if (n->getSalaXY(2, 2) == NULL){
+		n->adicionaSala(new SuporteVida(), 2, 2);
+	}
+	if (n->getSalaXY(2, 3) == NULL){
+		n->adicionaSala(new Escudo(), 2, 3);
+	}
+}
+
 void PreparaJogo::infoSala(int lin, int col){
 	Consola c;
 	string info = n->getSalaXY(lin, col)->mostraSala();
-	c.gotoxy(0, 0);
+	c.gotoxy(2, 2);
 	cout << info;
 
 }
 
+void PreparaJogo::infoSalaEscudo(int lin, int col){
+	Consola c;
+	string info = n->getSalaXY(lin, col)->mostraSalaEsc();
+	c.gotoxy(2, 2);
+	cout << info;
+}
 
 void PreparaJogo::infoUni(int id, int lin, int col){
 	Consola c;
 	string info = n->getSalaXY(lin, col)->mostraUnidade(id);
-	c.gotoxy(0, 0);
+	c.gotoxy(2, 2);
 	cout << info;
 
 }
@@ -411,34 +635,62 @@ void PreparaJogo::moveUni(int id, int x, int y){
 	}
 }
 
-bool PreparaJogo::verificaJogo(){
+void PreparaJogo::verificaNave(){
+}
+
+int PreparaJogo::verificaJogo(){
 	if (n->getSalaXY(2, 4) == NULL){
 		errorMsg("O jogo nao pode comecar pois a sala Ponte nao esta criada!");
-		return false;
+		return 1;
 	}
 	else if (n->checkUnidadeXY("TRI", 2, 4) == false){
 		errorMsg("Nao existe nenhuma unidade para pilotar a nave!");
-		return false;
+		return 1;
 	}
 	else if (n->getSalaXY(2, 1) == NULL){
 		errorMsg("O jogo nao pode comecar porque a sala das Maquinas nao existe!");
-		return false;
+		return 1;
 	}
 	else if (n->getSalaXY(1, 1) == NULL || n->getSalaXY(3, 1) == NULL){
 		errorMsg("O jogo nao pode comecar porque a nave nao tem propulsores!");
-		return false;
+		return 1;
 	}
-	else return true;
+	else return 2;
 }
 
 void PreparaJogo::comecaNave(){
 	Consola c;
+	int numEsc = numero_aleat5(10);
+	bool retorna = true;
 	int meta_milhas = 4000;
-	comandosJogo(recebeComando());
-	milhas += 250;
-	turno++;
-	if (turno == 1){
-		n->PosCosmico(turno);
+	verificaNave();
+	if (comandosJogo(recebeComando()) != 0){
+		jogadas++;
+	}
+	if (jogadas == 3){
+		if (n->getSalaXY(1, 1) != NULL){
+			milhas += n->getSalaXY(1, 1)->getIntegridade();
+		}
+		if (n->getSalaXY(3, 1) != NULL){
+			milhas += n->getSalaXY(3, 1)->getIntegridade();
+		}
+
+		milhas += 250;
+		turno++;
+		n->fazTudoCar();
+		
+		if (turno == 1){
+			n->escolheEvento();
+		}
+		
+		if (turno == numEsc){
+			n->escolheEvento();
+		}
+		
+		if (n->getSalaXY(2, 2) != NULL && n->getSalaXY(2,2)->getOxigenio() > 0){
+			n->adicionaVida();
+		}
+		jogadas = 0;
 	}
 	if (meta_milhas < milhas){
 		acabaJogo();
@@ -452,6 +704,7 @@ void PreparaJogo::acabaJogo(){
 	cout << "PARABENS!!!!" << endl;
 	cout << "Voce ganhou o jogo!" << endl;
 	cout << "Conseguiu chegar ao destino!" << endl;
+	c.getch();
 	exit(0);
 }
 
@@ -483,6 +736,10 @@ void PreparaJogo::setposXY(int x, int y){
 
 Nave *PreparaJogo::getNave(){
 	return n;
+}
+
+int PreparaJogo::getMilhas(){
+	return milhas;
 }
 
 Unidades *PreparaJogo::getUnidade(){

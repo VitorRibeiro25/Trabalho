@@ -1,13 +1,11 @@
 #include "Robot.h"
 
 
-Robot::Robot(int x, int y):Unidades(x,y){
+Robot::Robot(int x, int y, Sala *s):Unidades(x,y,s){
 	setNome("CAP");
-	setVida(100);
+	setVida(8);
 	setDano(100);
-	fazOrdens();
-	fazFim();
-
+	setAccoes();
 
 }
 
@@ -19,12 +17,11 @@ string Robot::mostraUnidade(){
 	return os.str();
 }
 
-void Robot::fazOrdens(){
-	tripulacao();
+
+void Robot::setAccoes(){
+	Combatente *novo = new Combatente(3, this);
+	this->insereAccao(novo);
 }
 
-void Robot::fazFim(){	
-	exoesqueleto(2);
-	combatente(3);
-}
+
 

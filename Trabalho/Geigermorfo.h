@@ -5,12 +5,8 @@
 
 class Geigemorfo : public Unidades{
 public:
-	Geigemorfo(int x, int y);
+	Geigemorfo(int x, int y, Sala *s);
 	string mostraUnidade();
-
-	void fazInicio();
-	void fazOrdens();
-	void fazFim();
 };
 
 #endif

@@ -5,6 +5,7 @@
 
 using namespace std;
 
+class Accao;
 
 class Unidades{
 	string nome;
@@ -12,11 +13,11 @@ class Unidades{
 	int lin, col;
 	int id;
 	static int id_uni;
-	Sala *ondeEstou;
-	Sala *oxigenio;
+	Sala *s;
+	vector <Accao *> accao;
 public:
 	// construtor e destrutor
-	Unidades(int x, int y);
+	Unidades(int x, int y, Sala *s);
 	~Unidades();
 
 	// funcoes gets
@@ -27,7 +28,6 @@ public:
 	int getCol();
 	int getDano();
 	Sala *getPonteiroSala();
-	Sala *getOxigenio();
 
 	//funcao sets
 	void setNome(string name);
@@ -37,34 +37,14 @@ public:
 	void setLin(int x);
 	void setCol(int y);
 	void setPos(int x, int y);
-	void setOndeEstou(Sala *s);
-	void setOxigenio(Sala *s);
+
 
 	// funcao de mostrar
 	virtual string mostraUnidade();
 	string mostraID();
 
 	// carateristicas para as unidades
-	// prob - probablilidade
-	void respira();
-	void flamejante();
-	void toxico(int ganhaVida);
-	void indeciso();
-	void misterioso();
-	void regenerador(int ganhaVida);
-	void exoesqueleto(int previneDano);
-	void robotico();
-	void reparador(int ReparaDano);
-	void combatente(int provocaDano);
-	void xenomorfo(int provocaDano);
-	void casulo(int prob);
-	void mutaisMutandis(int prob);
-	void hipnotizador(int prob);
-	void operador();
-	void tripulacao();
-	void inimigo(int danoUnid, int danoSala);
-	void move(int prob);
-	void armado(int ganhaDano);
+	void insereAccao(Accao *a);
 
 	//outras funcoes necessarias
 

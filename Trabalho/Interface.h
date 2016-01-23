@@ -10,6 +10,7 @@
 
 
 class Interface{
+	static int milhasI;
 public:
 	PreparaJogo * start;
 

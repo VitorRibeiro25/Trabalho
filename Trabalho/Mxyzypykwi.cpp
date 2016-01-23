@@ -1,13 +1,9 @@
 #include "Mxyzypykwi.h"
 
-
-Mxyz::Mxyz(int x, int y):Unidades(x,y){
+Mxyz::Mxyz(int x, int y, Sala *s):Unidades(x,y,s){
 	setNome("MXYZ");
-	setVida(100);
+	setVida(8);
 	setDano(100);
-	fazInicio();
-	fazOrdens();
-	fazFim();
 }
 
 string Mxyz::mostraUnidade(){
@@ -16,18 +12,4 @@ string Mxyz::mostraUnidade(){
 	os << "MXYZ com ID " << getId() << "Vida:" << getVida() << endl << "Dano: " << getDano() << endl;
 
 	return os.str();
-}
-
-void Mxyz::fazInicio(){	
-	respira();
-	move(30);
-}
-
-void Mxyz::fazOrdens(){
-	hipnotizador(15);	
-	mutaisMutandis(10);
-}
-
-void Mxyz::fazFim(){
-	xenomorfo(0);
 }

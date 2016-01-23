@@ -1,13 +1,11 @@
 #include "Inimigo.h"
 
-
-Inimigo::Inimigo(int x, int y):Unidades(x,y){
+Inimigo::Inimigo(int x, int y, Sala *s):Unidades(x,y,s){
 
 	setNome("PIR");
-	setVida(100);
+	setVida(4);
 	setDano(100);
-	fazInicio();
-	fazFim();
+	setAccoes();
 }
 
 string Inimigo::mostraUnidade(){
@@ -18,12 +16,11 @@ string Inimigo::mostraUnidade(){
 	return os.str();
 }
 
-void Inimigo::fazInicio(){
-	respira();	
-	move(15);
+
+void Inimigo::setAccoes(){
+	Respira *novo = new Respira(1, this);
+	InimigoC *novo2 = new InimigoC(1, 2, this);
+	this->insereAccao(novo);
+	this->insereAccao(novo2);
 }
 
-
-void Inimigo::fazFim(){
-	inimigo(1, 2);
-}

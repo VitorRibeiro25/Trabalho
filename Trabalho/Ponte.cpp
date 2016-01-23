@@ -2,7 +2,7 @@
 
 Ponte::Ponte():Sala(){
 	setNome("PONT");
-	setVida(100);
+	setVida(90);
 	setOxigenio(100);
 	setIntegridade(100);
 }

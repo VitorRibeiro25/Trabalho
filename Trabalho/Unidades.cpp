@@ -6,10 +6,11 @@ using namespace std;
 
 int Unidades::id_uni = 0;
 
-Unidades::Unidades(int x, int y){
+Unidades::Unidades(int x, int y, Sala *s){
 	setPos(x, y);
 	id_uni++;
 	id = id_uni;
+	this->s = s;
 }
 
 Unidades::~Unidades(){
@@ -41,12 +42,9 @@ int Unidades::getDano(){
 }
 
 Sala *Unidades::getPonteiroSala(){
-	return this->ondeEstou;
+	return this->s;
 }
 
-Sala *Unidades::getOxigenio(){
-	return this->oxigenio;
-}
 
 void Unidades::setNome(string name){
 	nome = name;
@@ -77,13 +75,6 @@ void Unidades::setDano(int dan){
 	dano = dan;
 }
 
-void Unidades::setOndeEstou(Sala *s){
-	ondeEstou = s;
-}
-
-void Unidades::setOxigenio(Sala *s){
-	oxigenio = s;
-}
 
 string Unidades::mostraID(){
 	ostringstream os;
@@ -99,96 +90,10 @@ string Unidades::mostraUnidade(){
 	return v;
 }
 
-
-void Unidades::respira(){
-	
-	if (getOxigenio() < 0){
-		setVida(getVida() -1);
-	}
-	else {
-		setOxigenio(getOxigenio() - 1);
-	}
-
-
+void Unidades::insereAccao(Accao *a){
+	accao.push_back(a);
 }
 
-void Unidades::flamejante(){
-	setOxigenio(getOxigenio() - 5);
-}
-
-void Unidades::toxico(int ganhaVida){
-
-}
-
-void Unidades::indeciso(){
-	
-}
-
-void Unidades::misterioso(){
-
-}
-
-void Unidades::regenerador(int ganhaVida){
-	if (getVida() < 100){
-		setVida(getVida() + ganhaVida);
-	}
-	else return;
-}
-
-void Unidades::exoesqueleto(int previneDano){
-	setDano(getDano() + previneDano);
-}
-
-void Unidades::robotico(){
-
-}
-
-void Unidades::reparador(int RepararDano){
-	if (getDano() < 100){
-		setDano(RepararDano);
-	}
-	else return;
-}
-
-void Unidades::combatente(int provocaDano){
-
-}
-
-void Unidades::xenomorfo(int provocaDano){
-
-}
-
-void Unidades::casulo(int prob){
-
-}
-
-void Unidades::mutaisMutandis(int prob){
-
-}
-
-void Unidades::hipnotizador(int prob){
-
-}
-
-void Unidades::operador(){
-
-}
-
-void Unidades::tripulacao(){
-
-}
-
-void Unidades::inimigo(int danoUnid, int danoSala){
-
-}
-
-void Unidades::move(int prob){
-
-}
-
-void Unidades::armado(int ganhaDano){
-
-}
 
 void Unidades::fazInicio(){
 }

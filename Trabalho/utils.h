@@ -14,6 +14,11 @@
 using namespace std;
 
 int numero_aleat(int num);
+int numero_aleat3(int num);
+int numero_aleat4(int num);
+int numero_aleat5(int num);
+int numero_aleat6(int num);
+int numero_aleat30(int num);
 void init_alea();
 string recebeComando();
 void ApagaErrorMsg();

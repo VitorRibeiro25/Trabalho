@@ -14,3 +14,4 @@ string SuporteVida::mostra(){
 
 	return os.str();
 }
+

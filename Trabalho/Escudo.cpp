@@ -5,13 +5,13 @@ Escudo::Escudo():Sala(){
 	setVida(100);
 	setOxigenio(100);
 	setIntegridade(100);
+	setEscudo(100);
 }
 
 string Escudo::mostra(){
 	ostringstream os;
 
-	os << "Escudo com ID: " << getID() << endl << "Vida: " << getVida() << endl << "Oxigenio: " << getOxigenio() << endl << "Integridade: " << getIntegridade() << endl;
+	os << "Escudo com ID: " << getID() << "Vida: " << getVida() << "Escudo: " << getEscudo() << "Oxigenio: " << getOxigenio() << "Integridade: " << getIntegridade() << endl;
 
 	return os.str();
 }
-

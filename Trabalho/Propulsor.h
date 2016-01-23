@@ -4,7 +4,7 @@
 #include "Salas.h"
 
 class Propulsor : public Sala {
-
+	int propulsao;
 public:
 	Propulsor();
 	string mostra();

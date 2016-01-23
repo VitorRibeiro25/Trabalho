@@ -49,6 +49,15 @@ bool Nave::salaAdjacenteCima(int x, int y){
 	return false;
 }
 
+bool Nave::salaAdjacenteBaixo(int x, int y){
+	if (y - 1 > 0){
+		if (getSalaXY(x, y + 1) != NULL){
+			return true;
+		}
+	}
+	return false;
+}
+
 void Nave::percorreSala(int id, int x, int y){
 	for (int i = 0; i < LIN; i++){
 		for (int j = 0; j < COL; j++){
@@ -121,32 +130,242 @@ bool Nave::checkUnidadeXYID(int id, int x, int y){
 
 }
 
-void Nave::PosCosmico(int tur){
+void Nave::escolheEvento(){
+	int numAleat = numero_aleat(4);
+	
+	if (numAleat == 1){
+		PosCosmico();
+	}
+	if (numAleat == 2){
+		AtaquePiratas();
+	}
+	if (numAleat == 3){
+		ChuvaMeteoritos();
+	}
+	if (numAleat == 3){
+		AtaqueXenomorfo();
+	}
+}
 
-	int numAleatLin = numero_aleat(3);
-	int numAleatCol = numero_aleat(4);
-	int numAleatLin2 = numero_aleat(3);
-	int numAleatCol2 = numero_aleat(4);
-	int numAleatLin3 = numero_aleat(3);
-	int numAleatCol3 = numero_aleat(4);
+void Nave::PosCosmico(){
+
+	int numSalas = numero_aleat3(2);
+	bool val;
+
+	while (numSalas != 0){
+		int numX = numero_aleat(4);
+		int numY = numero_aleat(3);
+		if (getSalaXY(numY, numX) != NULL){
+			getSalaXY(numY, numX)->setVida(getSalaXY(numY, numX)->getVida() - 10);
+			numSalas--;
+		}
+		numX = 0;
+		numY = 0;
+	}
+
+}
+
+
+
+void Nave::ChuvaMeteoritos(){
+	int num1 = numero_aleat4(4);
+	int num2 = numero_aleat6(6);
+	bool val;
 
 	for (int i = 1; i <= LIN; i++){
 		for (int j = 1; j <= COL; j++){
-
-			if (salas[numAleatLin][numAleatCol] != NULL){
-				if (salas[numAleatLin][numAleatCol]->getVida() > 0)
-				salas[numAleatLin][numAleatCol]->perdeVida(10);
+			if (salas[2][4]->checkUnit("TRI") == true || salas[2][4]->checkUnit("CAP") == true || salas[2][4]->checkUnit("ROB") == true){
+				val = true;
 			}
-
-			if (salas[numAleatLin2][numAleatCol2] != NULL){
-				salas[numAleatLin2][numAleatCol2]->perdeVida(10);
+			else {
+				val = false;
 			}
-			if (salas[numAleatLin3][numAleatCol3] != NULL){
-				salas[numAleatLin3][numAleatCol3]->perdeVida(10);
+		}
+	}
+
+
+	if (val == true){
+		while (num1 != 0){
+			int numX = numero_aleat(4);
+			int numY = numero_aleat(3);
+			if (salas[2][3]->getEscudo() >= 10){
+				salas[2][3]->setEscudo(salas[2][3]->getEscudo() - 10);
+				num1--;
+			}
+			else {
+				int numX = numero_aleat(4);
+				int numY = numero_aleat(3);
+				if (getSalaXY(numY, numX) != NULL){
+					getSalaXY(numY, numX)->setVida(getSalaXY(numY, numX)->getVida() - 10);
+					brecha();
+					num1--;
+				}
+				numX = 0;
+				numY = 0;
+			}
+		}
+	}
+	else {
+		while (num2 != 0){
+			int numX = numero_aleat(4);
+			int numY = numero_aleat(3);
+			if (salas[2][3]->getEscudo() >= 10){
+				salas[2][3]->setEscudo(salas[2][3]->getEscudo() - 10);
+				num2--;
+			}
+			else {
+				int numX = numero_aleat(4);
+				int numY = numero_aleat(3);
+				if (getSalaXY(numY, numX) != NULL){
+					getSalaXY(numY, numX)->setVida(getSalaXY(numY, numX)->getVida() - 10);
+					brecha();
+					num1--;
+				}
+				numX = 0;
+				numY = 0;
 			}
 		}
 	}
 }
+
+void Nave::AtaquePiratas(){
+
+	int DanoEscudo = numero_aleat30(30);
+	int numPiratas = numero_aleat3(2);
+	bool val = false;
+	
+	for (int i = 1; i <= LIN; i++){
+		for (int j = 1; j <= COL; j++){
+			if (salas[i][j] != NULL && i == 2 && j == 3){
+				salas[2][3]->perdeVidaEscudo(DanoEscudo);
+			}
+			if (salas[i][j] != NULL && salas[i][j]->getNome() == "RAIO"){
+				if (salas[i][j]->checkUnit("TRI") != NULL){
+					val = true;
+				}
+			}
+		}
+	}
+	if (val == false){
+		while (numPiratas != 0){
+			int numX = numero_aleat(4);
+			int numY = numero_aleat(3);
+			if (getSalaXY(numY, numX) != NULL){
+				adcionaUnidade(new Inimigo(numY, numX, getSalaXY(numY, numX)), numY, numX);
+				numPiratas--;
+			}
+			numX = 0;
+			numY = 0;
+		}
+	}
+}
+
+void Nave::AtaqueXenomorfo(){
+
+	int num = 1;
+	
+	while (num != 0){
+
+		int numX = numero_aleat(4);
+		int numY = numero_aleat(3);
+		if (getSalaXY(numY, numX) != NULL){
+			adcionaUnidade(new Blob(numY, numX, getSalaXY(numY, numX)), numY, numX);
+			num--;
+		}
+		numX = 0;
+		numY = 0;
+	}
+}
+
+void Nave::adicionaVida(){
+	for (int i = 1; i <= LIN; i++){
+		for (int j = 1; j <= COL; j++){
+			if (salas[i][j] != NULL){
+				if (salas[i][j]->getOxigenio() <= 98){
+					salas[i][j]->ganhaOxi(2);
+				}
+				if (salas[i][j]->getOxigenio() == 99){
+					salas[i][j]->ganhaOxi(1);
+				}
+			}
+		}
+	}
+}
+
+void Nave::brecha(){
+	for (int i = 1; i <= LIN; i++){
+		for (int j = 1; j <= COL; j++){
+			if (salas[i][j] != NULL){
+				if (salas[i][j]->getVida() < 100)
+					salas[i][j]->setOxigenio(0);
+			}
+		}
+	}
+}
+
+void Nave::fogo(){
+	int numPer = numero_aleat(100);					
+	int numPer2 = numero_aleat(20);
+	for (int i = 1; i <= LIN; i++){
+		for (int j = 1; j <= COL; j++){
+			if (salas[i][j] != NULL){
+				if (salas[i][j]->getOxigenio() > 0){
+					if (numPer >= 50){
+						salas[i][j]->perdeVida(10);
+						if (numPer2 == 1){
+							if (salaAdjacenteBaixo(i, j) == true){
+								salas[i][j + 1]->perdeVida(10);
+							}
+							if (salaAdjacenteCima(i, j) == true){
+								salas[i][j - 1]->perdeVida(10);
+							}
+							if (salaAdjacenteDireita(i, j) == true){
+								salas[i + 1][j]->perdeVida(10);
+							}
+							if (salaAdjacenteEsquerda(i, j) == true){
+								salas[i - 1][j]->perdeVida(10);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+void Nave::fazTudoCar(){
+	for (int i = 1; i <= LIN; i++){
+		for (int j = 1; j <= COL; j++){
+			if (salas[i][j] != NULL){
+				// respira a cada turno
+				if (salas[i][j]->checkUnit("TRI") == true || salas[i][j]->checkUnit("CAP") == true){
+					if (salas[i][j]->getOxigenio() >= 1){
+						salas[i][j]->ganhaOxi(-1);
+					}
+				}
+				// flamajante a cada turno e ver se esta fogo na sala
+				if (salas[i][j]->checkUnit("BLOB") == true){
+					if (salas[i][j]->getOxigenio() >= 5){
+						salas[i][j]->ganhaOxi(-5);
+					}
+				}
+				// reparador para cada turno, falta ver se nao esta em combate
+				if (salas[i][j]->checkUnit("TRI") == true || salas[i][j]->checkUnit("PIR") == true || salas[i][j]->checkUnit("CAP") == true){
+					if (salas[i][j]->getVida() < 100){
+						salas[i][j]->perdeVida(-1);
+					}
+				}
+
+				if (salas[i][j]->getVida() < 100){
+					fogo();
+					brecha();
+				}
+			}
+		}
+	}
+}
+
+
 
 void Nave::moveUni(int id, int x, int y){
 	Unidades *t = NULL;

@@ -5,11 +5,8 @@
 
 class Casulo : public Unidades{
 public:
-	Casulo(int x, int y);
+	Casulo(int x, int y, Sala *s);
 	string mostraUnidade();
-
-	void fazOrdens();
-	void fazFim();
 
 };
 

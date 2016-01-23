@@ -12,8 +12,10 @@ class PreparaJogo{
 	int linhas, colunas, id;
 	int posX, posY;
 	static int turno;
+	int i_pro;
 	Nave *n;
 	Unidades *u;
+	static int jogadas;
 	static int milhas;
 
 public:
@@ -27,6 +29,7 @@ public:
 	void avancaTurno();
 	void moveUni(int id, int x, int y);
 	void acabaJogo();
+	void verificaNave();
 
 	// funcao de preparajogo
 	void Prepjogo();
@@ -36,14 +39,16 @@ public:
 
 	// funcoes de comandos
 	void erroMsg(string error);
-	bool comandosJogo(string input);
+	int comandosJogo(string input);
 	bool comandosMenu();
+	void geraJogo();
 
 	//funcoes gets
 	int getLinhas();
 	int getColunas();
 	int getId();
 	int getposX();
+	int getMilhas();
 	int getposY();
 	Nave *getNave();
 	Unidades *getUnidade();
@@ -60,7 +65,7 @@ public:
 	void ajudaSalas();
 	void ajudaUnidades();
 	void ajudaAntesJogo();
-	bool verificaJogo();
+	int verificaJogo();
 
 	// funcoes de adicionar salas
 	void addEscudo();
@@ -82,6 +87,7 @@ public:
 	// funcao de mostrar
 	void mostra();
 	void infoSala(int lin, int col);
+	void infoSalaEscudo(int lin, int col);
 	void infoUni(int id, int lin, int col);
 };
 

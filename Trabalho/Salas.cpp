@@ -39,8 +39,21 @@ bool Sala::checkUnitID(int id_uni){
 	return false;
 }
 
+bool Sala::percorreUni(){
+	for (int i = 0; i < unidades.size(); i++){
+		if (unidades[i] != NULL){
+			return true;
+		}
+	}
+	return false;
+}
+
 string Sala::getNome(){
 	return nome;
+}
+
+int Sala::getEscudo(){
+	return escudo;
 }
 
 int Sala::getVida(){
@@ -69,6 +82,10 @@ void Sala::setVida(int vid){
 	vida = vid;
 }
 
+void Sala::setEscudo(int esc){
+	escudo = esc;
+}
+
 void Sala::setOxigenio(int oxig){
 	oxigenio = oxig;
 }
@@ -88,6 +105,21 @@ void Sala::perdeVida(int vid){
 	
 	setVida(vida);
 }
+
+void Sala::ganhaOxi(int oxi){
+
+	oxigenio = oxigenio + oxi;
+
+	setOxigenio(oxigenio);
+}
+
+void Sala::perdeVidaEscudo(int esc){
+	
+	escudo = escudo - esc;
+
+	setEscudo(escudo);
+}
+
 string Sala::mostraNome(){
 	ostringstream os;
 
@@ -95,6 +127,10 @@ string Sala::mostraNome(){
 
 	return os.str();
 
+}
+
+Nave *Sala::getNave(){
+	return this->n;
 }
 
 Unidades *Sala::getUniID(int id){
@@ -136,12 +172,20 @@ string Sala::mostraUniID(){
 string Sala::mostraSala(){
 	ostringstream os;
 
-	os << "Nome: " << getNome() << endl << " Vida: " << getVida() << " Oxigenio: " << getOxigenio() << " Integridade: " << getIntegridade();
+	os << "Nome: " << getNome() << " Vida: " << getVida() << " Oxigenio: " << getOxigenio() << " Integridade: " << getIntegridade();
 	
 
 	return os.str();
 }
 
+string Sala::mostraSalaEsc(){
+	ostringstream os;
+
+	os << "Nome: " << getNome() << "Escudo: " << getEscudo() << " Vida: " << getVida() << " Oxigenio: " << getOxigenio() << " Integridade: " << getIntegridade();
+
+
+	return os.str();
+}
 
 
 string Sala::mostra(){

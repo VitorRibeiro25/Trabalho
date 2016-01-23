@@ -4,10 +4,10 @@
 #include "Salas.h"
 
 class Escudo : public Sala{
-
 public:
 	Escudo();
 	string mostra();
+
 };
 
 #endif

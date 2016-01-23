@@ -1,16 +1,11 @@
 #include "Capitao.h"
 
-Capitao::Capitao(int x, int y):Unidades(x, y){
+Capitao::Capitao(int x, int y, Sala *s):Unidades(x, y,s){
 
 	setNome("CAP");
-	setVida(100);
+	setVida(6);
 	setDano(100);
-	fazInicio();	
-	fazOrdens();
-	fazFim();
-
-
-
+	setAccoes();
 }
 
 string Capitao::mostraUnidade(){
@@ -21,19 +16,16 @@ string Capitao::mostraUnidade(){
 	return os.str();
 }
 
-void Capitao::fazInicio(){
-	respira();
-
+void Capitao::setAccoes(){
+	Respira *novo = new Respira(1, this);
+	Reparador *novo2 = new Reparador(1, this);
+	Combatente *novo3 = new Combatente(2, this);
+	Operador *novo4 = new Operador(this);
+	this->insereAccao(novo);
+	this->insereAccao(novo2);
+	this->insereAccao(novo3);
+	this->insereAccao(novo4);
 }
 
-void Capitao::fazOrdens(){
-	operador();	
-	tripulacao();	
-	exoesqueleto(1);
-}
 
-void Capitao::fazFim(){
-	reparador(1);	
-	combatente(2);	
-}
 

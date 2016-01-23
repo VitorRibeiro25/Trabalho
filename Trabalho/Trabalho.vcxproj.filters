@@ -61,6 +61,12 @@
     <Filter Include="Source Files\Unidades\Inimigos">
       <UniqueIdentifier>{0c8a4b79-a01f-4197-a848-ffcc382ed44d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Carateristicas">
+      <UniqueIdentifier>{34f2131a-e831-444e-961f-ef6c0e96595b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Carateristicas">
+      <UniqueIdentifier>{528e76e9-fb85-4d0a-8d40-e9ba8ff952f3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -129,6 +135,90 @@
     <ClCompile Include="Beliche.cpp">
       <Filter>Source Files\Salas\Opcionais</Filter>
     </ClCompile>
+    <ClCompile Include="Accao.cpp">
+      <Filter>Resource Files\Carateristicas</Filter>
+    </ClCompile>
+    <ClCompile Include="Respira.cpp">
+      <Filter>Resource Files\Carateristicas</Filter>
+    </ClCompile>
+    <ClCompile Include="Flamajante.cpp">
+      <Filter>Resource Files\Carateristicas</Filter>
+    </ClCompile>
+    <ClCompile Include="Toxico.cpp">
+      <Filter>Resource Files\Carateristicas</Filter>
+    </ClCompile>
+    <ClCompile Include="Indeciso.cpp">
+      <Filter>Resource Files\Carateristicas</Filter>
+    </ClCompile>
+    <ClCompile Include="misterioso.cpp">
+      <Filter>Resource Files\Carateristicas</Filter>
+    </ClCompile>
+    <ClCompile Include="Regenerador.cpp">
+      <Filter>Resource Files\Carateristicas</Filter>
+    </ClCompile>
+    <ClCompile Include="Exoesqueleto.cpp">
+      <Filter>Resource Files\Carateristicas</Filter>
+    </ClCompile>
+    <ClCompile Include="Robotico.cpp">
+      <Filter>Resource Files\Carateristicas</Filter>
+    </ClCompile>
+    <ClCompile Include="Reparador.cpp">
+      <Filter>Resource Files\Carateristicas</Filter>
+    </ClCompile>
+    <ClCompile Include="Combatente.cpp">
+      <Filter>Resource Files\Carateristicas</Filter>
+    </ClCompile>
+    <ClCompile Include="Casulo_c.cpp">
+      <Filter>Resource Files\Carateristicas</Filter>
+    </ClCompile>
+    <ClCompile Include="Xenomrfo_c.cpp">
+      <Filter>Resource Files\Carateristicas</Filter>
+    </ClCompile>
+    <ClCompile Include="Mutais_c.cpp">
+      <Filter>Resource Files\Carateristicas</Filter>
+    </ClCompile>
+    <ClCompile Include="Hinotizador.cpp">
+      <Filter>Resource Files\Carateristicas</Filter>
+    </ClCompile>
+    <ClCompile Include="Operador.cpp">
+      <Filter>Resource Files\Carateristicas</Filter>
+    </ClCompile>
+    <ClCompile Include="Tripulacao.cpp">
+      <Filter>Resource Files\Carateristicas</Filter>
+    </ClCompile>
+    <ClCompile Include="Inimigo_c.cpp">
+      <Filter>Resource Files\Carateristicas</Filter>
+    </ClCompile>
+    <ClCompile Include="move.cpp">
+      <Filter>Resource Files\Carateristicas</Filter>
+    </ClCompile>
+    <ClCompile Include="armado.cpp">
+      <Filter>Resource Files\Carateristicas</Filter>
+    </ClCompile>
+    <ClCompile Include="Propulsor_adi.cpp">
+      <Filter>Source Files\Salas\Opcionais</Filter>
+    </ClCompile>
+    <ClCompile Include="Raio.cpp">
+      <Filter>Source Files\Salas\Opcionais</Filter>
+    </ClCompile>
+    <ClCompile Include="AutoReparador.cpp">
+      <Filter>Source Files\Salas\Opcionais</Filter>
+    </ClCompile>
+    <ClCompile Include="SistemaSeg.cpp">
+      <Filter>Source Files\Salas\Opcionais</Filter>
+    </ClCompile>
+    <ClCompile Include="Enfermaria.cpp">
+      <Filter>Source Files\Salas\Opcionais</Filter>
+    </ClCompile>
+    <ClCompile Include="Arma.cpp">
+      <Filter>Source Files\Salas\Opcionais</Filter>
+    </ClCompile>
+    <ClCompile Include="SCapitao.cpp">
+      <Filter>Source Files\Salas\Opcionais</Filter>
+    </ClCompile>
+    <ClCompile Include="Oficina.cpp">
+      <Filter>Source Files\Salas\Opcionais</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PreparaJogo.h">
@@ -192,6 +282,90 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Beliche.h">
+      <Filter>Header Files\Salas\Opcionais</Filter>
+    </ClInclude>
+    <ClInclude Include="Accoes.h">
+      <Filter>Header Files\Carateristicas</Filter>
+    </ClInclude>
+    <ClInclude Include="Respira.h">
+      <Filter>Header Files\Carateristicas</Filter>
+    </ClInclude>
+    <ClInclude Include="Flamajante.h">
+      <Filter>Header Files\Carateristicas</Filter>
+    </ClInclude>
+    <ClInclude Include="Toxico.h">
+      <Filter>Header Files\Carateristicas</Filter>
+    </ClInclude>
+    <ClInclude Include="Indeciso.h">
+      <Filter>Header Files\Carateristicas</Filter>
+    </ClInclude>
+    <ClInclude Include="misterioso.h">
+      <Filter>Header Files\Carateristicas</Filter>
+    </ClInclude>
+    <ClInclude Include="Regenerador.h">
+      <Filter>Header Files\Carateristicas</Filter>
+    </ClInclude>
+    <ClInclude Include="Exoesqueleto.h">
+      <Filter>Header Files\Carateristicas</Filter>
+    </ClInclude>
+    <ClInclude Include="Robotico.h">
+      <Filter>Header Files\Carateristicas</Filter>
+    </ClInclude>
+    <ClInclude Include="Reparador.h">
+      <Filter>Header Files\Carateristicas</Filter>
+    </ClInclude>
+    <ClInclude Include="Combatente.h">
+      <Filter>Header Files\Carateristicas</Filter>
+    </ClInclude>
+    <ClInclude Include="Xenomorfo.h">
+      <Filter>Header Files\Carateristicas</Filter>
+    </ClInclude>
+    <ClInclude Include="Casulo_c.h">
+      <Filter>Header Files\Carateristicas</Filter>
+    </ClInclude>
+    <ClInclude Include="Mutais.h">
+      <Filter>Header Files\Carateristicas</Filter>
+    </ClInclude>
+    <ClInclude Include="Hipnotizador.h">
+      <Filter>Header Files\Carateristicas</Filter>
+    </ClInclude>
+    <ClInclude Include="Operador.h">
+      <Filter>Header Files\Carateristicas</Filter>
+    </ClInclude>
+    <ClInclude Include="Tripulacao.h">
+      <Filter>Header Files\Carateristicas</Filter>
+    </ClInclude>
+    <ClInclude Include="Inimigo_c.h">
+      <Filter>Header Files\Carateristicas</Filter>
+    </ClInclude>
+    <ClInclude Include="Move.h">
+      <Filter>Header Files\Carateristicas</Filter>
+    </ClInclude>
+    <ClInclude Include="Armado.h">
+      <Filter>Header Files\Carateristicas</Filter>
+    </ClInclude>
+    <ClInclude Include="Propulsor_adi.h">
+      <Filter>Header Files\Salas\Opcionais</Filter>
+    </ClInclude>
+    <ClInclude Include="Raio.h">
+      <Filter>Header Files\Salas\Opcionais</Filter>
+    </ClInclude>
+    <ClInclude Include="AutoReparador.h">
+      <Filter>Header Files\Salas\Opcionais</Filter>
+    </ClInclude>
+    <ClInclude Include="SistemaSeg.h">
+      <Filter>Header Files\Salas\Opcionais</Filter>
+    </ClInclude>
+    <ClInclude Include="Enfermaria.h">
+      <Filter>Header Files\Salas\Opcionais</Filter>
+    </ClInclude>
+    <ClInclude Include="Armas.h">
+      <Filter>Header Files\Salas\Opcionais</Filter>
+    </ClInclude>
+    <ClInclude Include="SCapitao.h">
+      <Filter>Header Files\Salas\Opcionais</Filter>
+    </ClInclude>
+    <ClInclude Include="Oficina.h">
       <Filter>Header Files\Salas\Opcionais</Filter>
     </ClInclude>
   </ItemGroup>

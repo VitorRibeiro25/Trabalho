@@ -3,6 +3,8 @@
 #include "utils.h"
 #include "Salas.h"
 #include "Unidades.h"
+#include "Inimigo.h"
+#include "Blob.h"
 #define LIN 3
 #define COL 4
 
@@ -36,18 +38,29 @@ public:
 	bool checkUnidadeXY(string name, int x, int y);
 	bool checkUnidadeXYID(int sid, int x, int y);
 
+	void adicionaVida();
 
 	void setId(int i);
 
 	string mostraNave();
 
 	void moveUni(int id, int x, int y);
-	// eventos 
 
+	// eventos 
+	void escolheEvento();
 	void executaInicio();
 	void executaOrdens();
 	void executaFim();
-	void PosCosmico(int tur);
+	void PosCosmico();
+	void brecha();
+	void fogo();
+	void ChuvaMeteoritos();
+	void AtaquePiratas();
+	void AtaqueXenomorfo();
+
+	// carateristicas nos diferentes turnos
+	
+	void fazTudoCar();
 
 };
 

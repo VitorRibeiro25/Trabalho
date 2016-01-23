@@ -1,14 +1,11 @@
 #include "Blob.h"
 
-
-Blob::Blob(int x, int y):Unidades(x,y){
+Blob::Blob(int x, int y, Sala *s):Unidades(x,y,s){
 	setNome("BLOB");
-	setVida(100);
+	setVida(8);
 	setDano(100);
-	fazInicio();
-	fazOrdens();
-	fazFim();
 }
+
 
 string Blob::mostraUnidade(){
 	ostringstream os;
@@ -18,20 +15,15 @@ string Blob::mostraUnidade(){
 	return os.str();
 }
 
-void Blob::fazInicio(){
-	regenerador(2);	
-	flamejante();	
-	toxico(0); // rever aqui	
-	move(15);
+void Blob::setAccoes(){
+	Xenomorfo *novo = new Xenomorfo(0, this);
+	Regenerador *novo2 = new Regenerador(2, this);
+	Reparador *novo3 = new Reparador(6, this);
+	Operador *novo4 = new Operador(this);
+	Flamajante *novo5 = new Flamajante(this);
+ 	this->insereAccao(novo);
+	this->insereAccao(novo2);
+	this->insereAccao(novo3);
+	this->insereAccao(novo4);
+	this->insereAccao(novo5);
 }
-
-void Blob::fazOrdens(){
-	operador();
-}
-
-void Blob::fazFim(){
-	xenomorfo(0);	
-	reparador(6);
-
-}
-
